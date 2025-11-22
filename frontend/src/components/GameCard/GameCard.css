@@ -1,0 +1,92 @@
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.game-card-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-sport {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.game-price {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.game-card-body {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.game-info-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.game-organizer {
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: #64748B;
+}
+
+.verified-badge {
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+.game-card-footer {
+    padding: var(--spacing-md);
+    background-color: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+}
+
+.btn-join {
+    width: 100%;
+    display: block;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-join:hover {
+    background-color: var(--secondary-color);
+}
