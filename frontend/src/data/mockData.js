@@ -3,8 +3,8 @@
 
 export const currentUser = {
     id: 1,
-    username: "AlexChen",
-    email: "alex.chen@example.com",
+    username: "Jing Ming",
+    email: "jingming@example.com",
     bio: "Basketball enthusiast | Love playing badminton on weekends | Always up for a game!",
     profilePicture: "https://i.pravatar.cc/150?img=33",
     favoriteSports: ["Basketball", "Badminton", "Football"],
@@ -466,4 +466,230 @@ export const sportTypes = [
     "Futsal",
     "Rugby",
     "Cricket"
+];
+
+// ==================== INSTRUCTOR MODULE MOCK DATA ====================
+
+export const instructorProfile = {
+    id: 1,
+    userId: 2,
+    name: "Sarah Lim",
+    email: "sarah.lim@example.com",
+    profilePicture: "https://i.pravatar.cc/150?img=45",
+    bio: "Professional tennis and badminton coach with 8 years of experience. Specializing in technique improvement and competitive training. Passionate about helping players reach their full potential.",
+    yearsExperience: 8,
+    hourlyRate: 80.00,
+    sportsOffered: ["Tennis", "Badminton"],
+    certifications: [
+        { name: "Level 3 Tennis Coach", issuer: "Tennis Association", year: 2018 },
+        { name: "Badminton Coaching Certificate", issuer: "Badminton Federation", year: 2019 },
+        { name: "Sports Science Diploma", issuer: "Sports Institute", year: 2016 }
+    ],
+    rating: 4.9,
+    totalSessions: 187,
+    totalEarnings: 14960.00,
+    instructorLevel: "Gold",
+    rewardPoints: 3740,
+    verified: true,
+    bankAccountVerified: true,
+    walletBalance: 2400.00
+};
+
+export const coachingSessions = [
+    {
+        id: 1,
+        date: "2024-12-05",
+        timeSlot: "10:00 AM - 12:00 PM",
+        sessionType: "Private Lesson",
+        sport: "Tennis",
+        price: 80.00,
+        maxParticipants: 1,
+        currentParticipants: 1,
+        status: "Confirmed",
+        venue: "Penang Tennis Centre",
+        participants: [
+            { id: 3, name: "MikeTan", profilePicture: "https://i.pravatar.cc/150?img=12" }
+        ]
+    },
+    {
+        id: 2,
+        date: "2024-12-06",
+        timeSlot: "02:00 PM - 04:00 PM",
+        sessionType: "Group Class",
+        sport: "Badminton",
+        price: 120.00,
+        maxParticipants: 4,
+        currentParticipants: 3,
+        status: "Confirmed",
+        venue: "Queensbay Badminton Court",
+        participants: [
+            { id: 4, name: "JessicaWong", profilePicture: "https://i.pravatar.cc/150?img=47" },
+            { id: 5, name: "DavidLee", profilePicture: "https://i.pravatar.cc/150?img=56" },
+            { id: 6, name: "EmilyTan", profilePicture: "https://i.pravatar.cc/150?img=28" }
+        ]
+    },
+    {
+        id: 3,
+        date: "2024-12-07",
+        timeSlot: "09:00 AM - 10:00 AM",
+        sessionType: "Private Lesson",
+        sport: "Tennis",
+        price: 80.00,
+        maxParticipants: 1,
+        currentParticipants: 0,
+        status: "Available",
+        venue: "Penang Tennis Centre",
+        participants: []
+    },
+    {
+        id: 4,
+        date: "2024-12-08",
+        timeSlot: "04:00 PM - 06:00 PM",
+        sessionType: "Group Class",
+        sport: "Badminton",
+        price: 120.00,
+        maxParticipants: 4,
+        currentParticipants: 1,
+        status: "Pending",
+        venue: "USM Sports Complex",
+        participants: [
+            { id: 3, name: "MikeTan", profilePicture: "https://i.pravatar.cc/150?img=12", requestStatus: "Pending" }
+        ]
+    }
+];
+
+export const classHistory = [
+    {
+        id: 101,
+        date: "2024-11-30",
+        timeSlot: "10:00 AM - 12:00 PM",
+        sessionType: "Private Lesson",
+        sport: "Tennis",
+        earnings: 80.00,
+        participants: ["AlexChen"],
+        rating: 5.0,
+        feedback: "Excellent coaching! Very patient and knowledgeable.",
+        status: "Completed"
+    },
+    {
+        id: 102,
+        date: "2024-11-28",
+        timeSlot: "02:00 PM - 04:00 PM",
+        sessionType: "Group Class",
+        sport: "Badminton",
+        earnings: 120.00,
+        participants: ["MikeTan", "JessicaWong", "DavidLee"],
+        rating: 4.8,
+        feedback: "Great session, learned a lot!",
+        status: "Completed"
+    },
+    {
+        id: 103,
+        date: "2024-11-25",
+        timeSlot: "09:00 AM - 11:00 AM",
+        sessionType: "Private Lesson",
+        sport: "Tennis",
+        earnings: 80.00,
+        participants: ["EmilyTan"],
+        rating: 5.0,
+        feedback: "Best coach I've ever had!",
+        status: "Completed"
+    },
+    {
+        id: 104,
+        date: "2024-11-23",
+        timeSlot: "04:00 PM - 06:00 PM",
+        sessionType: "Group Class",
+        sport: "Badminton",
+        earnings: 120.00,
+        participants: ["AlexChen", "MikeTan"],
+        rating: 4.9,
+        feedback: "Highly recommended!",
+        status: "Completed"
+    },
+    {
+        id: 105,
+        date: "2024-11-20",
+        timeSlot: "10:00 AM - 12:00 PM",
+        sessionType: "Private Lesson",
+        sport: "Tennis",
+        earnings: 80.00,
+        participants: ["DavidLee"],
+        rating: 4.7,
+        feedback: "Good session overall.",
+        status: "Completed"
+    }
+];
+
+export const instructorEarnings = {
+    totalEarnings: 14960.00,
+    thisMonth: 480.00,
+    lastMonth: 720.00,
+    pendingPayouts: 2400.00,
+    lifetimeEarnings: 14960.00,
+    earningsBreakdown: [
+        { month: "November 2024", amount: 720.00, sessions: 9 },
+        { month: "October 2024", amount: 880.00, sessions: 11 },
+        { month: "September 2024", amount: 640.00, sessions: 8 },
+        { month: "August 2024", amount: 960.00, sessions: 12 }
+    ]
+};
+
+export const payoutHistory = [
+    {
+        id: 1,
+        date: "2024-11-01",
+        amount: 640.00,
+        status: "Completed",
+        method: "Bank Transfer",
+        bankAccount: "****5678",
+        transactionId: "TXN-2024110100123"
+    },
+    {
+        id: 2,
+        date: "2024-10-01",
+        amount: 880.00,
+        status: "Completed",
+        method: "Bank Transfer",
+        bankAccount: "****5678",
+        transactionId: "TXN-2024100100089"
+    },
+    {
+        id: 3,
+        date: "2024-09-01",
+        amount: 720.00,
+        status: "Completed",
+        method: "Bank Transfer",
+        bankAccount: "****5678",
+        transactionId: "TXN-2024090100056"
+    }
+];
+
+export const instructorRewards = {
+    currentLevel: "Gold",
+    currentPoints: 3740,
+    nextLevel: "Platinum",
+    pointsToNextLevel: 1260,
+    benefits: [
+        { level: "Bronze", commissionRate: "15%", unlocked: true },
+        { level: "Silver", commissionRate: "12%", unlocked: true },
+        { level: "Gold", commissionRate: "10%", unlocked: true },
+        { level: "Platinum", commissionRate: "8%", unlocked: false }
+    ],
+    pointsSources: [
+        { source: "Completed Sessions", points: 1870, percentage: 50 },
+        { source: "5-Star Ratings", points: 1122, percentage: 30 },
+        { source: "Repeat Bookings", points: 748, percentage: 20 }
+    ]
+};
+
+export const bankAccounts = [
+    {
+        id: 1,
+        bankName: "Maybank",
+        accountNumber: "****5678",
+        accountHolderName: "Sarah Lim",
+        verified: true,
+        addedDate: "2024-01-15"
+    }
 ];

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import InstructorNavbar from './components/InstructorNavbar/InstructorNavbar';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
@@ -11,15 +12,26 @@ import Instructors from './pages/Instructors/Instructors';
 import Rewards from './pages/Rewards/Rewards';
 import ReportIssue from './pages/ReportIssue/ReportIssue';
 import InstructorApplication from './pages/InstructorApplication/InstructorApplication';
+// Instructor Module Pages
+import InstructorDashboard from './pages/InstructorDashboard/InstructorDashboard';
+import InstructorProfile from './pages/InstructorProfile/InstructorProfile';
+import ManageSessions from './pages/ManageSessions/ManageSessions';
+import InstructorRewards from './pages/InstructorRewards/InstructorRewards';
+import ClassHistory from './pages/ClassHistory/ClassHistory';
+import InstructorPayouts from './pages/InstructorPayouts/InstructorPayouts';
 import AIChat from './components/AIChat/AIChat';
 import { games } from './data/mockData';
 import './styles/main.css';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [currentPage, setCurrentPage] = useState('home'); // home, profile, createGame, gameDetails, socialFeed, groups, instructors, rewards, reportIssue, instructorApp
+    const [currentPage, setCurrentPage] = useState('home');
     const [selectedGameId, setSelectedGameId] = useState(null);
     const [showLoginPage, setShowLoginPage] = useState(false);
+
+    // Check if current page is an instructor page
+    const instructorPages = ['instructorDashboard', 'instructorProfile', 'manageSessions', 'instructorRewards', 'classHistory', 'instructorPayouts'];
+    const isInstructorPage = instructorPages.includes(currentPage);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -62,14 +74,24 @@ function App() {
 
     return (
         <div className="app-container">
-            <Navbar
-                isAuthenticated={isAuthenticated}
-                onLogout={handleLogout}
-                onShowLogin={handleShowLogin}
-                onNavigate={navigateTo}
-                currentPage={currentPage}
-            />
+            {/* Conditionally render navbar based on page type */}
+            {isInstructorPage ? (
+                <InstructorNavbar
+                    onNavigate={navigateTo}
+                    onLogout={handleLogout}
+                    currentPage={currentPage}
+                />
+            ) : (
+                <Navbar
+                    isAuthenticated={isAuthenticated}
+                    onLogout={handleLogout}
+                    onShowLogin={handleShowLogin}
+                    onNavigate={navigateTo}
+                    currentPage={currentPage}
+                />
+            )}
 
+            {/* Player Module Pages */}
             {currentPage === 'home' && <Home onGameClick={handleGameClick} />}
             {currentPage === 'profile' && <Profile />}
             {currentPage === 'createGame' && <CreateGame onBack={() => navigateTo('home')} />}
@@ -80,6 +102,14 @@ function App() {
             {currentPage === 'rewards' && <Rewards />}
             {currentPage === 'reportIssue' && <ReportIssue onBack={() => navigateTo('home')} />}
             {currentPage === 'instructorApp' && <InstructorApplication onBack={() => navigateTo('instructors')} />}
+
+            {/* Instructor Module Pages */}
+            {currentPage === 'instructorDashboard' && <InstructorDashboard onNavigate={navigateTo} />}
+            {currentPage === 'instructorProfile' && <InstructorProfile />}
+            {currentPage === 'manageSessions' && <ManageSessions />}
+            {currentPage === 'instructorRewards' && <InstructorRewards />}
+            {currentPage === 'classHistory' && <ClassHistory />}
+            {currentPage === 'instructorPayouts' && <InstructorPayouts />}
 
             {/* AI Chat is always available */}
             <AIChat />

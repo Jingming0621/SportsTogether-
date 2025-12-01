@@ -34,6 +34,7 @@ const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPag
             <div className="navbar-auth">
                 {isAuthenticated ? (
                     <>
+                        <button onClick={() => handleNavigate('instructorDashboard')} className="nav-link">👨‍🏫 Instructor Mode</button>
                         <button onClick={() => handleNavigate('profile')} className="nav-link">👤 {username || 'Profile'}</button>
                         <button onClick={onLogout} className="nav-link nav-cta">Logout</button>
                     </>
