@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Hero from '../../components/Hero/Hero';
 import GameCard from '../../components/GameCard/GameCard';
-import { fetchGames } from '../../services/api';
+import { games } from '../../data/mockData';
 
-const Home = () => {
-    const [games, setGames] = useState([]);
-
-    useEffect(() => {
-        const loadGames = async () => {
-            try {
-                const data = await fetchGames();
-                setGames(data);
-            } catch (error) {
-                // Error is logged in the service
-            }
-        };
-        loadGames();
-    }, []);
-
+const Home = ({ onGameClick }) => {
     return (
         <>
             <Hero />
@@ -26,7 +12,9 @@ const Home = () => {
                     <h2 className="section-title">Upcoming Games</h2>
                     <div className="games-grid">
                         {games.map(game => (
-                            <GameCard key={game.id} game={game} />
+                            <div key={game.id} onClick={() => onGameClick && onGameClick(game.id)} style={{ cursor: 'pointer' }}>
+                                <GameCard game={game} />
+                            </div>
                         ))}
                     </div>
                 </section>
@@ -36,3 +24,4 @@ const Home = () => {
 };
 
 export default Home;
+

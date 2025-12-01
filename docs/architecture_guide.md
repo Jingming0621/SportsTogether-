@@ -1,11 +1,135 @@
 # SportsTogether - Architecture & MVC Implementation Guide
 
 ## Table of Contents
-1. [What is MVC?](#what-is-mvc)
-2. [Backend (ASP.NET Core) - MVC Implementation](#backend-mvc)
-3. [Frontend (React) - Component-Based Architecture](#frontend-architecture)
-4. [How They Work Together](#integration)
-5. [Code Flow Examples](#code-flow)
+1. [Getting Started - Launching the System](#getting-started)
+2. [What is MVC?](#what-is-mvc)
+3. [Backend (ASP.NET Core) - MVC Implementation](#backend-mvc)
+4. [Frontend (React) - Component-Based Architecture](#frontend-architecture)
+5. [How They Work Together](#integration)
+6. [Code Flow Examples](#code-flow)
+
+---
+
+## Getting Started - Launching the System
+
+This section will guide you through setting up and running the SportsTogether application.
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+1. **.NET SDK** (version 6.0 or later)
+   - Download from [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+   - Verify installation: `dotnet --version`
+
+2. **Node.js** (version 14.0 or later) and **npm**
+   - Download from [https://nodejs.org/](https://nodejs.org/)
+   - Verify installation: `node --version` and `npm --version`
+
+3. **Git** (optional, for cloning the repository)
+   - Download from [https://git-scm.com/](https://git-scm.com/)
+
+### Step 1: Launch the Backend (API)
+
+The backend is an ASP.NET Core Web API that handles authentication, database operations, and business logic.
+
+1. **Navigate to the API directory**:
+   ```powershell
+   cd SportsTogether_Project\SportsTogether.API
+   ```
+
+2. **Restore dependencies** (first time only):
+   ```powershell
+   dotnet restore
+   ```
+
+3. **Run the API**:
+   ```powershell
+   dotnet run
+   ```
+
+4. **Verify it's running**:
+   - You should see output like: `Now listening on: http://localhost:5000`
+   - The API will be accessible at `http://localhost:5000`
+   - Test it by visiting `http://localhost:5000/Games` in your browser
+
+> [!TIP]
+> If port 5000 is already in use, you can specify a different port:
+> ```powershell
+> dotnet run --urls "http://localhost:5001"
+> ```
+
+### Step 2: Launch the Frontend (React)
+
+The frontend is a React application that provides the user interface.
+
+1. **Open a new terminal** (keep the backend running in the first terminal)
+
+2. **Navigate to the frontend directory**:
+   ```powershell
+   cd SportsTogether_Project\frontend
+   ```
+
+3. **Install dependencies** (first time only):
+   ```powershell
+   npm install
+   ```
+
+4. **Start the development server**:
+   ```powershell
+   npm start
+   ```
+
+5. **Verify it's running**:
+   - The app should automatically open in your browser at `http://localhost:3000`
+   - If it doesn't, manually navigate to `http://localhost:3000`
+
+> [!NOTE]
+> The React development server runs on port 3000 by default. If you see a message asking if you want to run on a different port (because 3000 is in use), type `Y` to accept.
+
+### Step 3: Using the Application
+
+Once both servers are running:
+
+1. **Homepage**: Navigate to `http://localhost:3000` to see the landing page
+2. **Browse Games**: You can view available games without logging in
+3. **Sign In/Register**: Click the "Sign In" button in the navigation bar to create an account or log in
+4. **Database**: The backend uses SQLite, and the database file (`app.db`) will be automatically created in the `SportsTogether.API` directory on first run
+
+### Troubleshooting
+
+**Backend Issues**:
+- **Port already in use**: Change the port in `Program.cs` or use the `--urls` flag
+- **Database errors**: Delete `app.db` and restart the API to rebuild the database
+- **CORS errors**: Ensure `Program.cs` has CORS configured to allow `http://localhost:3000`
+
+**Frontend Issues**:
+- **Module not found**: Run `npm install` again
+- **API connection errors**: Verify the backend is running on `http://localhost:5000`
+- **Blank page**: Check the browser console (F12) for error messages
+
+**Both Not Communicating**:
+- Verify the API URL in `frontend/src/services/api.js` matches your backend URL
+- Check that CORS is properly configured in the backend
+
+### Quick Start Script (Optional)
+
+If you want to launch both servers with one command, you can create a script:
+
+**For Windows (PowerShell)**:
+Create a file named `start.ps1` in the project root:
+```powershell
+# Start backend
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd SportsTogether.API; dotnet run"
+
+# Wait a moment for backend to start
+Start-Sleep -Seconds 3
+
+# Start frontend
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd frontend; npm start"
+```
+
+Run it with: `.\start.ps1`
 
 ---
 

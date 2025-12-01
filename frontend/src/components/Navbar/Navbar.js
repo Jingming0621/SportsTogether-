@@ -1,24 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ isAuthenticated, onLogout, onShowLogin }) => {
+const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPage }) => {
     const username = localStorage.getItem('username');
+    const [showDropdown, setShowDropdown] = useState(null);
+
+    const handleNavigate = (page) => {
+        onNavigate(page);
+        setShowDropdown(null);
+    };
 
     return (
         <nav className="navbar">
-            <a href="/" className="navbar-logo">
+            <button onClick={() => handleNavigate('home')} className="navbar-logo" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
                 Sports<span>Together</span>
-            </a>
+            </button>
             <ul className="navbar-links">
-                <li><a href="/" className="nav-link">Home</a></li>
-                <li><a href="#games" className="nav-link">Find Games</a></li>
-                <li><a href="#rewards" className="nav-link">Rewards</a></li>
-                <li><a href="#community" className="nav-link">Community</a></li>
+                <li><button onClick={() => handleNavigate('home')} className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}>Games</button></li>
+                <li><button onClick={() => handleNavigate('createGame')} className={`nav-link ${currentPage === 'createGame' ? 'active' : ''}`}>Create Game</button></li>
+                <li><button onClick={() => handleNavigate('socialFeed')} className={`nav-link ${currentPage === 'socialFeed' ? 'active' : ''}`}>Social</button></li>
+                <li><button onClick={() => handleNavigate('groups')} className={`nav-link ${currentPage === 'groups' ? 'active' : ''}`}>Groups</button></li>
+                <li><button onClick={() => handleNavigate('instructors')} className={`nav-link ${currentPage === 'instructors' ? 'active' : ''}`}>Instructors</button></li>
+                <li><button onClick={() => handleNavigate('rewards')} className={`nav-link ${currentPage === 'rewards' ? 'active' : ''}`}>Rewards</button></li>
+
+                <li className="nav-dropdown">
+                    <button className="nav-link">More ▾</button>
+                    <div className="dropdown-menu">
+                        <button onClick={() => handleNavigate('reportIssue')}>Report Issue</button>
+                        <button onClick={() => handleNavigate('instructorApp')}>Become Instructor</button>
+                    </div>
+                </li>
             </ul>
             <div className="navbar-auth">
                 {isAuthenticated ? (
                     <>
-                        {username && <span className="nav-link">Hello, {username}</span>}
+                        <button onClick={() => handleNavigate('profile')} className="nav-link">👤 {username || 'Profile'}</button>
                         <button onClick={onLogout} className="nav-link nav-cta">Logout</button>
                     </>
                 ) : (
@@ -30,3 +46,4 @@ const Navbar = ({ isAuthenticated, onLogout, onShowLogin }) => {
 };
 
 export default Navbar;
+

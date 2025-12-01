@@ -1,0 +1,152 @@
+.report-issue-page {
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.report-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.report-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.report-header h1 {
+    margin: 0 0 10px 0;
+    color: #1e293b;
+    font-size: 32px;
+}
+
+.safety-window-banner {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.safety-window-banner strong {
+    display: block;
+    color: #92400e;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.safety-window-banner p {
+    margin: 0;
+    color: #78350f;
+    font-size: 14px;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-section h2 {
+    color: #fa709a;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.no-transactions {
+    color: #ef4444;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.file-upload-area {
+    margin: 10px 0;
+}
+
+.upload-btn {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    border: 2px dashed #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+.file-selected {
+    margin-top: 10px;
+    color: #10b981;
+    font-weight: 600;
+}
+
+.what-happens-next {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.what-happens-next h3 {
+    margin: 0 0 20px 0;
+    color: #1e293b;
+    font-size: 18px;
+    text-align: center;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 auto 15px;
+}
+
+.step-content strong {
+    display: block;
+    color: #1e293b;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.step-content p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .report-container {
+        padding: 25px;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}

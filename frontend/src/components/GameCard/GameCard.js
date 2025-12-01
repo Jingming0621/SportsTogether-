@@ -6,16 +6,16 @@ const GameCard = ({ game }) => {
         weekday: 'short',
         year: 'numeric',
         month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+        day: 'numeric'
     });
+
+    const isTrusted = game.organizer?.trustLevel === 'Verified' || game.organizer?.trustLevel === 'Trusted';
 
     return (
         <div className="game-card">
             <div className="game-card-header">
-                <h3 className="game-sport">{game.sport}</h3>
-                <span className="game-price">${game.costPerPlayer}</span>
+                <h3 className="game-sport">{game.sportType || game.sport}</h3>
+                <span className="game-price">${game.cost || game.costPerPlayer}</span>
             </div>
             <div className="game-card-body">
                 <div className="game-info-row">
@@ -24,11 +24,11 @@ const GameCard = ({ game }) => {
                 </div>
                 <div className="game-info-row">
                     <span>📅</span>
-                    <span>{formattedDate}</span>
+                    <span>{formattedDate}, {game.time}</span>
                 </div>
                 <div className="game-organizer">
-                    <span>Host: {game.organizerName}</span>
-                    {game.isTrustedOrganizer && <span className="verified-badge" title="Trusted Organizer">⭐</span>}
+                    <span>Host: {game.organizer?.username || game.organizerName || 'Unknown'}</span>
+                    {isTrusted && <span className="verified-badge" title="Trusted Organizer">⭐</span>}
                 </div>
             </div>
             <div className="game-card-footer">
@@ -39,3 +39,4 @@ const GameCard = ({ game }) => {
 };
 
 export default GameCard;
+
