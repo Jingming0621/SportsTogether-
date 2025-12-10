@@ -27,6 +27,9 @@
     gap: var(--spacing-md);
     list-style: none;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-link {
@@ -59,6 +62,31 @@
     position: relative;
 }
 
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -81,6 +109,24 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.dropdown-header {
+    padding: 1rem 1rem 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.user-role {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 2px;
 }
 
 .dropdown-menu button {

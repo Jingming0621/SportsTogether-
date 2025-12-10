@@ -3,13 +3,24 @@ import { currentUser, games } from '../../data/mockData';
 import './PlayerAnalytics.css';
 
 const PlayerAnalytics = () => {
-    // Calculate stats
-    const myGames = games.filter(game =>
-        game.roster.some(player => player.id === currentUser.id)
-    );
+    // Calculate stats based on COMPLETED (past) games only
+    const today = new Date();
+    const myGames = games.filter(game => {
+        const gameDate = new Date(game.date);
+        // Check if user is in roster AND game is in the past
+        const isUserInGame = game.roster.some(player => player.id === currentUser.id);
+        const isPast = gameDate < today;
+        return isUserInGame && isPast;
+    });
 
     const totalGamesPlayed = myGames.length;
     const totalSpent = myGames.reduce((acc, game) => acc + game.cost, 0);
+
+    // Calculate points dynamically (Cost * 10 or 50 default)
+    const totalPointsEarned = myGames.reduce((acc, game) => {
+        const points = Math.floor(game.cost * 10) || 50;
+        return acc + points;
+    }, 0);
 
     // Calculate favorite sports
     const sportCounts = myGames.reduce((acc, game) => {
@@ -42,7 +53,7 @@ const PlayerAnalytics = () => {
                     </div>
                     <div className="stat-card">
                         <h3>Points Earned</h3>
-                        <div className="stat-value">{currentUser.pointsEarned}</div>
+                        <div className="stat-value">{totalPointsEarned}</div>
                         <div className="stat-subtitle">Reward points</div>
                     </div>
                     <div className="stat-card">

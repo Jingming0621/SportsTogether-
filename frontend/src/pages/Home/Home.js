@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import GameCard from '../../components/GameCard/GameCard';
+import CreateGame from '../CreateGame/CreateGame';
 import { games, sportTypes } from '../../data/mockData';
 import './Home.css';
 
 const Home = ({ onGameClick }) => {
+    const [showCreateGameModal, setShowCreateGameModal] = useState(false);
     const [selectedSport, setSelectedSport] = useState('All');
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
@@ -243,9 +245,14 @@ const Home = ({ onGameClick }) => {
 
                     <div className="section-header">
                         <h2 className="section-title">Trending Games</h2>
-                        {(selectedDate || selectedTime || selectedArea !== 'All' || searchQuery) && (
-                            <button className="clear-filter-link" onClick={clearFilters}>Clear all filters</button>
-                        )}
+                        <div className="header-actions">
+                            {(selectedDate || selectedTime || selectedArea !== 'All' || searchQuery) && (
+                                <button className="clear-filter-link" onClick={clearFilters}>Clear all filters</button>
+                            )}
+                            <button className="create-game-btn-home" onClick={() => setShowCreateGameModal(true)}>
+                                + Create Game
+                            </button>
+                        </div>
                     </div>
 
                     {filteredGames.length > 0 ? (
@@ -266,6 +273,14 @@ const Home = ({ onGameClick }) => {
                     )}
                 </section>
             </main>
+
+            {showCreateGameModal && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <CreateGame onBack={() => setShowCreateGameModal(false)} />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -1,10 +1,24 @@
 import React from 'react';
-import { rewards, myRewards, currentUser } from '../../data/mockData';
+import { rewards, myRewards, currentUser, games } from '../../data/mockData';
 import './Rewards.css';
 
 const Rewards = () => {
+    // Calculate points dynamically
+    const today = new Date();
+    const myGames = games.filter(game => {
+        const gameDate = new Date(game.date);
+        const isUserInGame = game.roster.some(player => player.id === currentUser.id);
+        const isPast = gameDate < today;
+        return isUserInGame && isPast;
+    });
+
+    const pointsEarned = myGames.reduce((acc, game) => {
+        const points = Math.floor(game.cost * 10) || 50;
+        return acc + points;
+    }, 0);
+
     const handleRedeem = (reward) => {
-        if (currentUser.pointsEarned < reward.pointCost) {
+        if (pointsEarned < reward.pointCost) {
             alert('❌ Insufficient Points\n\nYou don\'t have enough points to redeem this reward!\n\n(This is a prototype UI)');
             return;
         }
@@ -22,7 +36,7 @@ const Rewards = () => {
                     </div>
                     <div className="points-balance">
                         <span className="balance-label">Your Points</span>
-                        <span className="balance-amount">{currentUser.pointsEarned}</span>
+                        <span className="balance-amount">{pointsEarned}</span>
                     </div>
                 </div>
 
@@ -104,9 +118,9 @@ const Rewards = () => {
                                         <button
                                             className="redeem-btn"
                                             onClick={() => handleRedeem(reward)}
-                                            disabled={currentUser.pointsEarned < reward.pointCost || (reward.stock !== null && reward.stock === 0)}
+                                            disabled={pointsEarned < reward.pointCost || (reward.stock !== null && reward.stock === 0)}
                                         >
-                                            {currentUser.pointsEarned < reward.pointCost ? 'Not Enough Points' : 'Redeem'}
+                                            {pointsEarned < reward.pointCost ? 'Not Enough Points' : 'Redeem'}
                                         </button>
                                     </div>
                                 </div>

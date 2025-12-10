@@ -1,8 +1,32 @@
 import React, { useState } from 'react';
-import { currentUser, sportTypes } from '../../data/mockData';
+import { currentUser, sportTypes, games } from '../../data/mockData';
 import './Profile.css';
 
 const Profile = () => {
+    // Calculate stats dynamically
+    const today = new Date();
+    const myGames = games.filter(game => {
+        const gameDate = new Date(game.date);
+        const isUserInGame = game.roster.some(player => player.id === currentUser.id);
+        const isPast = gameDate < today;
+        return isUserInGame && isPast;
+    });
+
+    const gamesPlayed = myGames.length;
+    const pointsEarned = myGames.reduce((acc, game) => {
+        const points = Math.floor(game.cost * 10) || 50;
+        return acc + points;
+    }, 0);
+
+    // Calculate favorite sport (most played)
+    const sportCounts = myGames.reduce((acc, game) => {
+        acc[game.sportType] = (acc[game.sportType] || 0) + 1;
+        return acc;
+    }, {});
+
+    const sortedSports = Object.entries(sportCounts).sort(([, a], [, b]) => b - a);
+    const favoriteSport = sortedSports.length > 0 ? sortedSports[0][0] : 'None';
+
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
         username: currentUser.username,
@@ -66,16 +90,16 @@ const Profile = () => {
                         {/* Stats */}
                         <div className="profile-stats">
                             <div className="stat-item">
-                                <span className="stat-number">{currentUser.gamesPlayed}</span>
+                                <span className="stat-number">{gamesPlayed}</span>
                                 <span className="stat-label">Games Played</span>
                             </div>
                             <div className="stat-item">
-                                <span className="stat-number">{currentUser.pointsEarned}</span>
+                                <span className="stat-number">{pointsEarned}</span>
                                 <span className="stat-label">Points Earned</span>
                             </div>
                             <div className="stat-item">
-                                <span className="stat-number">{currentUser.favoriteSports.length}</span>
-                                <span className="stat-label">Favorite Sports</span>
+                                <span className="stat-number">{favoriteSport}</span>
+                                <span className="stat-label">Favorite Sport</span>
                             </div>
                         </div>
                     </div>
