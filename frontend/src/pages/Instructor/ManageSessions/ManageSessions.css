@@ -1,6 +1,6 @@
 .manage-sessions-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
+    padding: 60px 20px 40px;
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
@@ -237,3 +237,4 @@
         flex-wrap: wrap;
     }
 }
+

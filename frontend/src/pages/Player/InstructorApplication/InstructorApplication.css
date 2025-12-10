@@ -1,8 +1,7 @@
 .instructor-application-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
-    background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%);
-    /* Cool Mint */
+    padding: 60px 20px 40px;
+    background-color: var(--background-light);
 }
 
 .application-container {
@@ -207,3 +206,4 @@
         justify-content: center;
     }
 }
+

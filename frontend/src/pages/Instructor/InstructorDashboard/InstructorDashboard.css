@@ -1,6 +1,6 @@
 .instructor-dashboard-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
+    padding: 60px 20px 40px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
@@ -153,3 +153,4 @@
         grid-template-columns: 1fr;
     }
 }
+

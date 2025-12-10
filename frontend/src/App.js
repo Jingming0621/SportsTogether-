@@ -2,28 +2,31 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import InstructorNavbar from './components/InstructorNavbar/InstructorNavbar';
 import AdminNavbar from './components/AdminNavbar/AdminNavbar';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Profile from './pages/Profile/Profile';
-import CreateGame from './pages/CreateGame/CreateGame';
-import GameDetails from './pages/GameDetails/GameDetails';
-import SocialFeed from './pages/SocialFeed/SocialFeed';
-import Groups from './pages/Groups/Groups';
-import Instructors from './pages/Instructors/Instructors';
-import Rewards from './pages/Rewards/Rewards';
-import ReportIssue from './pages/ReportIssue/ReportIssue';
-import InstructorApplication from './pages/InstructorApplication/InstructorApplication';
-import CalendarPage from './pages/Calendar/CalendarPage';
-import GameHistory from './pages/GameHistory/GameHistory';
-import PlayerAnalytics from './pages/PlayerAnalytics/PlayerAnalytics';
+// Common Pages
+import Home from './pages/Common/Home/Home';
+import Login from './pages/Common/Login/Login';
+import ReportIssue from './pages/Common/ReportIssue/ReportIssue';
+
+// Player Pages
+import Profile from './pages/Player/Profile/Profile';
+import CreateGame from './pages/Player/CreateGame/CreateGame';
+import GameDetails from './pages/Player/GameDetails/GameDetails';
+import SocialFeed from './pages/Player/SocialFeed/SocialFeed';
+import Groups from './pages/Player/Groups/Groups';
+import InstructorMarketplace from './pages/Player/InstructorMarketplace/InstructorMarketplace';
+import Rewards from './pages/Player/Rewards/Rewards';
+import InstructorApplication from './pages/Player/InstructorApplication/InstructorApplication';
+import CalendarPage from './pages/Player/Calendar/CalendarPage';
+import GameHistory from './pages/Player/GameHistory/GameHistory';
+import PlayerAnalytics from './pages/Player/PlayerAnalytics/PlayerAnalytics';
 
 // Instructor Module Pages
-import InstructorDashboard from './pages/InstructorDashboard/InstructorDashboard';
-import InstructorProfile from './pages/InstructorProfile/InstructorProfile';
-import ManageSessions from './pages/ManageSessions/ManageSessions';
-import InstructorRewards from './pages/InstructorRewards/InstructorRewards';
-import ClassHistory from './pages/ClassHistory/ClassHistory';
-import InstructorPayouts from './pages/InstructorPayouts/InstructorPayouts';
+import InstructorDashboard from './pages/Instructor/InstructorDashboard/InstructorDashboard';
+import InstructorProfile from './pages/Instructor/InstructorProfile/InstructorProfile';
+import ManageSessions from './pages/Instructor/ManageSessions/ManageSessions';
+import InstructorRewards from './pages/Instructor/InstructorRewards/InstructorRewards';
+import ClassHistory from './pages/Instructor/ClassHistory/ClassHistory';
+import InstructorPayouts from './pages/Instructor/InstructorPayouts/InstructorPayouts';
 
 // Admin Module Pages
 import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
@@ -147,7 +150,7 @@ function App() {
             {currentPage === 'gameDetails' && <GameDetails gameId={selectedGameId} onBack={() => navigateTo('home')} />}
             {currentPage === 'socialFeed' && <SocialFeed />}
             {currentPage === 'groups' && <Groups />}
-            {currentPage === 'instructors' && <Instructors />}
+            {currentPage === 'instructors' && <InstructorMarketplace />}
             {currentPage === 'rewards' && <Rewards />}
             {currentPage === 'reportIssue' && <ReportIssue onBack={() => navigateTo('home')} />}
             {currentPage === 'instructorApp' && <InstructorApplication onBack={() => navigateTo('instructors')} />}

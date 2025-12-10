@@ -5,26 +5,23 @@
 }
 
 .social-feed-container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .social-feed-container h1 {
+    color: #1e293b;
     font-size: 36px;
     margin: 0 0 10px 0;
     text-align: center;
-    color: #1e293b;
-    text-shadow: none;
 }
 
 .subtitle {
     text-align: center;
     color: #64748b;
     margin: 0 0 30px 0;
-    opacity: 1;
 }
 
-/* ... rest of the file ... */
 .create-post-card {
     background: white;
     border-radius: 15px;
@@ -59,7 +56,7 @@
 
 .create-post-header textarea:focus {
     outline: none;
-    border-color: #FFA726;
+    border-color: #FF9F1C;
 }
 
 .image-preview {
@@ -95,6 +92,7 @@
 }
 
 .upload-btn {
+    background: #f1f5f9;
     color: #64748b;
     padding: 10px 20px;
     border-radius: 20px;
@@ -104,8 +102,12 @@
     transition: all 0.3s ease;
 }
 
+.upload-btn:hover {
+    background: #e2e8f0;
+}
+
 .post-btn {
-    background: linear-gradient(135deg, #FF7043 0%, #FF5722 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
     color: white;
     border: none;
     padding: 12px 28px;
@@ -117,7 +119,7 @@
 
 .post-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 87, 34, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
 }
 
 .posts-feed {
@@ -132,6 +134,10 @@
     padding: 25px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .post-header {
@@ -203,8 +209,7 @@
 }
 
 .action-btn:hover {
-    background-color: #f8fafc;
-    color: #FF5722;
+    background: #f8fafc;
 }
 
 .action-btn.liked {
@@ -219,4 +224,10 @@
     .create-post-header {
         flex-direction: column;
     }
+
+    .user-avatar {
+        align-self: flex-start;
+    }
 }
+
+

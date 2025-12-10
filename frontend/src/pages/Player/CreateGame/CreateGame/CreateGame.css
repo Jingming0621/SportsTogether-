@@ -1,8 +1,7 @@
 .create-game-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
-    /* Warm Peach */
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 .create-game-container {
@@ -21,7 +20,7 @@
 .back-btn {
     background: none;
     border: none;
-    color: #FF5722;
+    color: #f5576c;
     font-size: 16px;
     cursor: pointer;
     padding: 8px 0;
@@ -54,14 +53,17 @@
 }
 
 .trust-banner.verified {
+    background: #d1fae5;
     border-color: #10b981;
 }
 
 .trust-banner.trusted {
+    background: #dbeafe;
     border-color: #3b82f6;
 }
 
 .trust-banner.new {
+    background: #fef3c7;
     border-color: #f59e0b;
 }
 
@@ -103,7 +105,7 @@
 }
 
 .form-section h2 {
-    color: #FF5722;
+    color: #f5576c;
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -142,8 +144,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #FF5722;
-    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+    border-color: #f5576c;
+    box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
 }
 
 .form-group textarea {
@@ -157,6 +159,7 @@
 }
 
 .required-badge {
+    background: #fee2e2;
     color: #dc2626;
     padding: 2px 8px;
     border-radius: 10px;
@@ -166,6 +169,7 @@
 }
 
 .venue-proof {
+    background: #fef3c7;
     padding: 20px;
     border-radius: 10px;
     border: 2px dashed #f59e0b;
@@ -188,6 +192,7 @@
 }
 
 .file-upload-btn:hover {
+    background: #f59e0b;
     color: white;
 }
 
@@ -198,6 +203,7 @@
 }
 
 .game-preview {
+    background: #f8fafc;
     padding: 25px;
     border-radius: 12px;
     border: 2px solid #e2e8f0;
@@ -226,6 +232,7 @@
 }
 
 .sport-badge-preview {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
     padding: 6px 14px;
     border-radius: 20px;
@@ -241,10 +248,12 @@
 }
 
 .status-badge.open {
+    background: #d1fae5;
     color: #059669;
 }
 
 .status-badge.pending {
+    background: #fef3c7;
     color: #d97706;
 }
 
@@ -280,21 +289,25 @@
 }
 
 .submit-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     color: white;
     flex: 1;
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 10px 25px rgba(245, 87, 108, 0.4);
 }
 
 .cancel-btn {
+    background: #e2e8f0;
     color: #64748b;
     padding: 16px 24px;
 }
 
-.cancel-btn:hover {}
+.cancel-btn:hover {
+    background: #cbd5e1;
+}
 
 @media (max-width: 768px) {
     .create-game-container {

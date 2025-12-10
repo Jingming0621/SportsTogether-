@@ -29,7 +29,7 @@ const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPag
                 {isAuthenticated ? (
                     <>
                         <button onClick={() => handleNavigate('instructorDashboard')} className="nav-link mode-toggle">
-                            🎓 Instructor Mode
+                            Instructor Mode
                         </button>
                         <div className="nav-dropdown profile-dropdown">
                             <button className="nav-link profile-btn">

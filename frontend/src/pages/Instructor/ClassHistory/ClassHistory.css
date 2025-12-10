@@ -1,6 +1,6 @@
 .class-history-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
+    padding: 60px 20px 40px;
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
 }
 
@@ -238,3 +238,4 @@
         justify-content: flex-start;
     }
 }
+

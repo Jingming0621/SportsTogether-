@@ -1,93 +1,105 @@
 .instructor-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    /* height: 80px; Removed fixed height */
-    background: linear-gradient(135deg, #0f766e 0%, #0891b2 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+    padding: 12px 32px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-md) var(--spacing-lg);
-    /* Standardized padding */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    position: sticky;
+    top: 0;
     z-index: 1000;
 }
 
-.instructor-navbar .navbar-logo {
-    font-size: 1.5rem;
-    /* Standardized font size */
-    font-weight: 800;
-    /* Standardized font weight */
-    color: white;
-    padding: 0;
+.instructor-navbar-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
+    letter-spacing: -0.5px;
 }
 
-.instructor-navbar .navbar-logo span {
-    color: #ffd700;
-    margin-left: 4px;
+.instructor-navbar-logo span {
+    color: #FFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.instructor-navbar .navbar-links {
+.instructor-navbar-links {
     display: flex;
+    gap: 16px;
     list-style: none;
-    gap: var(--spacing-md);
-    /* Standardized gap */
-    margin: 0;
-    padding: 0;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.instructor-navbar .nav-link {
+.instructor-nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
     background: none;
     border: none;
-    color: white;
-    padding: 0;
-    /* Removed padding to match nav-link style */
     cursor: pointer;
-    font-size: 1rem;
-    /* Standardized font size */
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.instructor-nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.instructor-nav-link.active {
+    background: rgba(255, 255, 255, 0.25);
     font-weight: 600;
-    /* Standardized font weight */
+}
+
+.instructor-navbar-auth {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mode-toggle {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
+    border: none;
 }
 
-.instructor-navbar .nav-link:hover {
-    color: rgba(255, 255, 255, 0.8);
-    /* Changed hover effect to text color */
-    background: none;
-    /* Removed background hover */
+.mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
 }
 
-.instructor-navbar .nav-link.active {
-    color: #ffd700;
-    /* Active state color */
-    background: none;
-    font-weight: 700;
-}
-
-/* Dropdown Styles */
-.instructor-navbar .nav-dropdown {
-    position: relative;
-}
-
-.instructor-navbar .profile-btn {
+.instructor-profile-btn {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 5px;
-    /* Standardized padding */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
 }
 
-.instructor-navbar .profile-name {
+.instructor-profile-name {
     font-weight: 600;
-    color: white;
+    color: #FFFFFF;
 }
 
-.instructor-navbar .profile-icon {
+.instructor-profile-icon {
     width: 35px;
     height: 35px;
-    background-color: #ffd700;
-    color: #0f766e;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -96,14 +108,14 @@
     font-size: 0.9rem;
 }
 
-.instructor-navbar .dropdown-menu {
+.instructor-dropdown-menu {
     position: absolute;
     top: 100%;
     right: 0;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    min-width: 220px;
+    min-width: 200px;
     margin-top: 0.5rem;
     opacity: 0;
     visibility: hidden;
@@ -114,91 +126,57 @@
     padding: 0.5rem;
 }
 
-.instructor-navbar .nav-dropdown:hover .dropdown-menu {
+.instructor-nav-dropdown:hover .instructor-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.instructor-navbar .dropdown-header {
+.instructor-dropdown-header {
     padding: 1rem 1rem 0.5rem;
     border-bottom: 1px solid #f1f5f9;
     margin-bottom: 0.5rem;
 }
 
-.instructor-navbar .user-name {
+.instructor-user-name {
     font-weight: 700;
-    color: #0f766e;
+    color: var(--primary-color);
     font-size: 1.1rem;
 }
 
-.instructor-navbar .user-role {
+.instructor-user-role {
     color: #64748b;
     font-size: 0.9rem;
     margin-top: 2px;
 }
 
-.instructor-navbar .dropdown-menu button {
+.instructor-dropdown-menu button {
     background: none;
     border: none;
     padding: 0.75rem 1rem;
     text-align: left;
-    color: #334155;
+    color: var(--primary-color);
     font-weight: 500;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background 0.2s ease;
-    width: 100%;
 }
 
-.instructor-navbar .dropdown-menu button:hover {
-    background: #f1f5f9;
-    color: #0f766e;
+.instructor-dropdown-menu button:hover {
+    background: #FFE8CC;
 }
 
-.instructor-navbar hr {
-    border: 0;
-    border-top: 1px solid #e2e8f0;
-    margin: 4px 0;
+.instructor-nav-dropdown {
+    position: relative;
 }
 
-.instructor-navbar .navbar-auth {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    /* Standardized gap */
-}
-
-.instructor-navbar .mode-toggle {
-    /* Removed border styles */
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.instructor-navbar .mode-toggle:hover {
-    /* Removed background hover */
-    color: rgba(255, 255, 255, 0.8);
-}
-
-@media (max-width: 768px) {
-    .instructor-navbar {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
+@media (max-width: 968px) {
+    .instructor-navbar-links {
+        display: none;
     }
 
-    .instructor-navbar .navbar-links {
-        flex-direction: column;
-        width: 100%;
-        margin: 15px 0;
-    }
-
-    .instructor-navbar .navbar-auth {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+    .mode-toggle {
+        font-size: 0.85rem;
+        padding: 5px 10px;
     }
 }

@@ -11,34 +11,21 @@
 
 .groups-header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 30px;
-    position: relative;
 }
 
 .groups-header h1 {
     color: #1e293b;
     font-size: 36px;
     margin: 0 0 10px 0;
-    text-align: center;
-    flex: 1;
-}
-
-.groups-header .subtitle {
-    text-align: center;
-    color: #1e293b;
-    margin: 0 0 20px 0;
-    font-weight: 400;
 }
 
 .create-group-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
     background: white;
-    color: #F7931E;
-    border: 2px solid #F7931E;
+    color: #fcb69f;
+    border: 2px solid #fcb69f;
     padding: 12px 24px;
     border-radius: 25px;
     font-weight: 600;
@@ -47,10 +34,10 @@
 }
 
 .create-group-btn:hover {
-    background: #F7931E;
+    background: #fcb69f;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(247, 147, 30, 0.4);
+    box-shadow: 0 6px 20px rgba(252, 182, 159, 0.4);
 }
 
 .modal-overlay {
@@ -163,6 +150,7 @@
 
 .visibility-option.selected {
     border-color: #fcb69f;
+    background: #fff5f2;
 }
 
 .visibility-option div {
@@ -200,6 +188,7 @@
 
 .submit-btn {
     flex: 1;
+    background-color: var(--background-light);
     color: #1e293b;
 }
 
@@ -209,10 +198,13 @@
 }
 
 .cancel-btn {
+    background: #e2e8f0;
     color: #64748b;
 }
 
-.cancel-btn:hover {}
+.cancel-btn:hover {
+    background: #cbd5e1;
+}
 
 .groups-section {
     margin-bottom: 40px;
@@ -276,10 +268,12 @@
 }
 
 .visibility-badge.public {
+    background: #d1fae5;
     color: #059669;
 }
 
 .visibility-badge.private {
+    background: #fef3c7;
     color: #d97706;
 }
 
@@ -343,6 +337,7 @@
 }
 
 .view-btn {
+    background-color: var(--background-light);
     color: #1e293b;
 }
 
@@ -351,13 +346,17 @@
 }
 
 .leave-btn {
+    background: #fee2e2;
     color: #dc2626;
 }
 
-.leave-btn:hover {}
+.leave-btn:hover {
+    background: #fecaca;
+}
 
 .join-btn {
     width: 100%;
+    background-color: var(--background-light);
     color: #1e293b;
 }
 
@@ -380,3 +379,5 @@
         grid-template-columns: 1fr;
     }
 }
+
+

@@ -1,6 +1,6 @@
 .instructor-rewards-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
+    padding: 60px 20px 40px;
     background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
 }
 
@@ -289,3 +289,4 @@
         grid-template-columns: 1fr;
     }
 }
+

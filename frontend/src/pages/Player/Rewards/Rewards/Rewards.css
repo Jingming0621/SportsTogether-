@@ -1,8 +1,7 @@
 .rewards-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #FFF8E1 0%, #FFECB3 100%);
-    /* Sunny Gold */
+    background-color: var(--background-light);
 }
 
 .rewards-container {
@@ -96,6 +95,7 @@
 }
 
 .voucher-code {
+    background: #f8fafc;
     padding: 10px 15px;
     border-radius: 8px;
     font-family: 'Courier New', monospace;
@@ -117,6 +117,7 @@
 
 .status-badge.active {
     display: inline-block;
+    background: #d1fae5;
     color: #059669;
     padding: 6px 16px;
     border-radius: 15px;
@@ -144,6 +145,7 @@
 .category-btn.active,
 .category-btn:hover {
     border-color: #fdcb6e;
+    background: #fdcb6e;
     color: #1e293b;
 }
 
@@ -253,6 +255,7 @@
 }
 
 .redeem-btn {
+    background-color: var(--background-light);
     color: #1e293b;
     border: none;
     padding: 10px 20px;
@@ -268,6 +271,7 @@
 }
 
 .redeem-btn:disabled {
+    background: #e2e8f0;
     color: #94a3b8;
     cursor: not-allowed;
 }
@@ -295,11 +299,13 @@
 .earn-card {
     text-align: center;
     padding: 25px;
+    background: #f8fafc;
     border-radius: 12px;
     transition: all 0.3s ease;
 }
 
 .earn-card:hover {
+    background: #ffeaa7;
     transform: translateY(-3px);
 }
 
@@ -351,4 +357,5 @@
         flex-wrap: wrap;
     }
 }
+
 

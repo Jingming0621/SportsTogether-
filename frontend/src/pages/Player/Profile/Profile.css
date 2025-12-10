@@ -1,7 +1,7 @@
 .profile-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--background-light);
 }
 
 .profile-container {
@@ -14,7 +14,7 @@
 }
 
 .profile-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--background-light);
     padding: 40px;
     color: white;
     display: flex;
@@ -219,7 +219,7 @@
 }
 
 .sport-badge {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--background-light);
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -268,7 +268,7 @@
 }
 
 .btn-save {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: var(--background-light);
     color: white;
     flex: 1;
 }

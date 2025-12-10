@@ -1,6 +1,6 @@
 .instructor-profile-page {
     min-height: 100vh;
-    padding: 100px 20px 40px;
+    padding: 60px 20px 40px;
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
@@ -343,3 +343,4 @@
         margin-top: 20px;
     }
 }
+
