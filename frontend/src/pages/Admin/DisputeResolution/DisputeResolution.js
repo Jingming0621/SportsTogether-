@@ -21,7 +21,7 @@ const DisputeResolution = () => {
             investigating: { text: 'Investigating', class: 'badge-investigating' },
             resolved: { text: 'Resolved', class: 'badge-resolved' }
         };
-        const badge = badges[status];
+        const badge = badges[status.toLowerCase()] || badges.open;
         return <span className={`status-badge ${badge.class}`}>{badge.text}</span>;
     };
 
@@ -31,7 +31,7 @@ const DisputeResolution = () => {
             medium: { text: 'Medium', class: 'severity-medium' },
             high: { text: 'High', class: 'severity-high' }
         };
-        const badge = badges[severity];
+        const badge = badges[(severity || 'low').toLowerCase()] || badges.low;
         return <span className={`severity-badge ${badge.class}`}>{badge.text}</span>;
     };
 

@@ -26,6 +26,7 @@ const Login = ({ onLoginSuccess, onBack }) => {
                 const response = await login(formData.email, formData.password);
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('username', response.username);
+                localStorage.setItem('role', response.role);
                 setMessage('Login successful!');
                 if (onLoginSuccess) {
                     onLoginSuccess(response);

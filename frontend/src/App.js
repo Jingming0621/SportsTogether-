@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import InstructorNavbar from './components/InstructorNavbar/InstructorNavbar';
+import AdminNavbar from './components/AdminNavbar/AdminNavbar';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
@@ -23,6 +24,15 @@ import ManageSessions from './pages/ManageSessions/ManageSessions';
 import InstructorRewards from './pages/InstructorRewards/InstructorRewards';
 import ClassHistory from './pages/ClassHistory/ClassHistory';
 import InstructorPayouts from './pages/InstructorPayouts/InstructorPayouts';
+
+// Admin Module Pages
+import AdminDashboard from './pages/Admin/AdminDashboard/AdminDashboard';
+import VerificationDashboard from './pages/Admin/VerificationDashboard/VerificationDashboard';
+import DisputeResolution from './pages/Admin/DisputeResolution/DisputeResolution';
+import RewardsManagement from './pages/Admin/RewardsManagement/RewardsManagement';
+import ContentModeration from './pages/Admin/ContentModeration/ContentModeration';
+import AIAgentManagement from './pages/Admin/AIAgentManagement/AIAgentManagement';
+
 import AIChat from './components/AIChat/AIChat';
 import './styles/main.css';
 
@@ -36,19 +46,46 @@ function App() {
     const instructorPages = ['instructorDashboard', 'instructorProfile', 'manageSessions', 'instructorRewards', 'classHistory', 'instructorPayouts'];
     const isInstructorPage = instructorPages.includes(currentPage);
 
+    // Check if current page is an admin page
+    const adminPages = ['adminDashboard', 'verificationDashboard', 'disputeResolution', 'rewardsManagement', 'contentModeration', 'aiAgentManagement'];
+    const isAdminPage = adminPages.includes(currentPage);
+
     useEffect(() => {
         const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
         setIsAuthenticated(!!token);
+
+        if (token && role) {
+            const lowerRole = role.toLowerCase();
+            if (['instructor'].includes(lowerRole)) {
+                setCurrentPage('instructorDashboard');
+            } else if (['admin'].includes(lowerRole)) {
+                setCurrentPage('adminDashboard');
+            }
+        }
     }, []);
 
-    const handleLoginSuccess = () => {
+    const handleLoginSuccess = (userData) => {
+        console.log("Login Success Data:", userData);
         setIsAuthenticated(true);
         setShowLoginPage(false);
+
+        const role = userData.role || '';
+        const lowerRole = role.toLowerCase();
+
+        if (['instructor'].includes(lowerRole)) {
+            console.log("Redirecting to Instructor Dashboard");
+            setCurrentPage('instructorDashboard');
+        } else if (['admin'].includes(lowerRole)) {
+            console.log("Redirecting to Admin Dashboard");
+            setCurrentPage('adminDashboard');
+        }
     };
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('username');
+        localStorage.removeItem('role');
         setIsAuthenticated(false);
         setCurrentPage('home');
     };
@@ -80,6 +117,12 @@ function App() {
             {/* Conditionally render navbar based on page type */}
             {isInstructorPage ? (
                 <InstructorNavbar
+                    onNavigate={navigateTo}
+                    onLogout={handleLogout}
+                    currentPage={currentPage}
+                />
+            ) : isAdminPage ? (
+                <AdminNavbar
                     onNavigate={navigateTo}
                     onLogout={handleLogout}
                     currentPage={currentPage}
@@ -116,6 +159,14 @@ function App() {
             {currentPage === 'instructorRewards' && <InstructorRewards />}
             {currentPage === 'classHistory' && <ClassHistory />}
             {currentPage === 'instructorPayouts' && <InstructorPayouts />}
+
+            {/* Admin Module Pages */}
+            {currentPage === 'adminDashboard' && <AdminDashboard onNavigate={navigateTo} />}
+            {currentPage === 'verificationDashboard' && <VerificationDashboard />}
+            {currentPage === 'disputeResolution' && <DisputeResolution />}
+            {currentPage === 'rewardsManagement' && <RewardsManagement />}
+            {currentPage === 'contentModeration' && <ContentModeration />}
+            {currentPage === 'aiAgentManagement' && <AIAgentManagement />}
 
             {/* AI Chat is always available */}
             <AIChat />

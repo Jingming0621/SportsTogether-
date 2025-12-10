@@ -798,6 +798,318 @@ export const classHistory = [
     }
 ];
 
+// ==================== ADMIN MODULE MOCK DATA ====================
+
+export const verificationRequests = [
+    {
+        id: 1,
+        user: usersArray[3],
+        name: "Jessica Wong",
+        email: "jessica@example.com",
+        type: "Instructor",
+        date: "2024-12-01",
+        submittedDate: "2024-12-01",
+        status: "Pending",
+        documents: ["cert.pdf", "id.jpg"],
+        sports: ["Tennis"],
+        experience: 2
+    },
+    {
+        id: 2,
+        user: usersArray[4],
+        name: "David Lee",
+        email: "david@example.com",
+        type: "Organizer",
+        date: "2024-12-02",
+        submittedDate: "2024-12-02",
+        status: "Pending",
+        documents: ["venue_booking.pdf"]
+    },
+    {
+        id: 3,
+        user: usersArray[2],
+        name: "Michael Chen",
+        email: "michael@example.com",
+        type: "Instructor",
+        date: "2024-11-20",
+        submittedDate: "2024-11-20",
+        status: "Approved",
+        documents: ["coaching_license.pdf"],
+        sports: ["Badminton", "Squash"],
+        experience: 5
+    },
+    {
+        id: 4,
+        user: usersArray[1],
+        name: "Sarah Tan",
+        email: "sarah@example.com",
+        type: "Organizer",
+        date: "2024-11-25",
+        submittedDate: "2024-11-25",
+        status: "Rejected",
+        rejectionReason: "Incomplete venue documentation",
+        documents: ["incomplete_form.pdf"]
+    },
+    {
+        id: 5,
+        user: usersArray[0],
+        name: "Alex Lim",
+        email: "alex@example.com",
+        type: "Instructor",
+        date: "2024-11-28",
+        submittedDate: "2024-11-28",
+        status: "Rejected",
+        rejectionReason: "Certificate expired",
+        documents: ["expired_cert.pdf"],
+        sports: ["Swimming"],
+        experience: 1
+    }
+];
+
+export const disputeCases = [
+    {
+        id: 1,
+        reporter: usersArray[0].username,
+        reportedUser: usersArray[1].username,
+        type: "Game Issue",
+        reason: "No-show",
+        reportDate: "2024-12-03",
+        status: "Open",
+        severity: "Low",
+        description: "User did not show up for the game.",
+        transactionAmount: 15.00
+    },
+    {
+        id: 2,
+        reporter: usersArray[2].username,
+        reportedUser: usersArray[3].username,
+        type: "Behavior",
+        reason: "Harassment",
+        reportDate: "2024-12-04",
+        status: "Investigating",
+        severity: "High",
+        description: "User was rude in chat."
+    },
+    {
+        id: 3,
+        reporter: usersArray[4].username,
+        reportedUser: usersArray[0].username,
+        type: "Payment",
+        reason: "Overcharged",
+        reportDate: "2024-11-30",
+        status: "Resolved",
+        resolution: "Refund Issued",
+        severity: "Medium",
+        description: "Charged twice for the same booking.",
+        transactionAmount: 50.00
+    },
+    {
+        id: 4,
+        reporter: usersArray[1].username,
+        reportedUser: usersArray[2].username,
+        type: "General",
+        reason: "Spamming",
+        reportDate: "2024-11-28",
+        status: "Resolved",
+        resolution: "Warning Issued",
+        severity: "Low",
+        description: "Sending multiple spam messages in group chat."
+    },
+    {
+        id: 5,
+        reporter: usersArray[3].username,
+        reportedUser: usersArray[4].username,
+        type: "Safety",
+        reason: "Dangerous Play",
+        reportDate: "2024-11-15",
+        status: "Resolved",
+        resolution: "User Banned",
+        severity: "High",
+        description: "Intentionally trying to injure others during football."
+    }
+];
+
+export const rewardsData = [
+    {
+        id: 1,
+        partnerName: "Decathlon",
+        voucherType: "RM10 Voucher",
+        pointCost: 500,
+        description: "RM10 off at Decathlon",
+        active: true
+    },
+    {
+        id: 2,
+        partnerName: "Sports Planet",
+        voucherType: "Free Game Pass",
+        pointCost: 1000,
+        description: "One free game session",
+        active: true
+    },
+    {
+        id: 3,
+        partnerName: "Nike",
+        voucherType: "15% Discount",
+        pointCost: 800,
+        description: "15% off storewide",
+        active: false
+    },
+    {
+        id: 4,
+        partnerName: "Adidas",
+        voucherType: "RM20 Voucher",
+        pointCost: 1500,
+        description: "RM20 off with min spend RM100",
+        active: true
+    },
+    {
+        id: 5,
+        partnerName: "Local Gym",
+        voucherType: "Day Pass",
+        pointCost: 300,
+        description: "One day access to gym facilities",
+        active: false
+    }
+];
+
+export const flaggedContent = [
+    {
+        id: 1,
+        type: "comment",
+        content: "This is a spam comment.",
+        author: "SpammerUser",
+        reason: "Spam",
+        reportCount: 1,
+        flaggedDate: "2024-12-05",
+        status: "flagged",
+        severity: "low"
+    },
+    {
+        id: 2,
+        type: "post",
+        content: "Inappropriate image.",
+        author: "BadUser",
+        reason: "Inappropriate Content",
+        reportCount: 3,
+        flaggedDate: "2024-12-06",
+        status: "flagged",
+        severity: "high"
+    },
+    {
+        id: 3,
+        type: "group",
+        content: "Get Rich Quick Scheme",
+        author: "Scammer101",
+        reason: "Scam/Fraud",
+        reportCount: 10,
+        flaggedDate: "2024-12-01",
+        status: "deleted",
+        severity: "high"
+    },
+    {
+        id: 4,
+        type: "post",
+        content: "Looking for players for badminton.",
+        author: "RegularPlayer",
+        reason: "False Report",
+        reportCount: 1,
+        flaggedDate: "2024-12-04",
+        status: "approved",
+        severity: "low"
+    },
+    {
+        id: 5,
+        type: "comment",
+        content: "You are terrible at this game!",
+        author: "ToxicPlayer",
+        reason: "Harassment",
+        reportCount: 2,
+        flaggedDate: "2024-12-07",
+        status: "flagged",
+        severity: "medium"
+    }
+];
+
+export const aiKnowledgeBase = [
+    {
+        id: 1,
+        category: "General",
+        question: "How do I create a game?",
+        answer: "To create a game, go to the Create Game page...",
+        lastUpdated: "2024-11-01"
+    },
+    {
+        id: 2,
+        category: "Payments",
+        question: "What payment methods are accepted?",
+        answer: "We accept Visa, Mastercard, and e-wallets.",
+        lastUpdated: "2024-11-15"
+    },
+    {
+        id: 3,
+        category: "Games",
+        question: "How do I join a game?",
+        answer: "Browse the available games list and click 'Join'.",
+        lastUpdated: "2024-11-10"
+    },
+    {
+        id: 4,
+        category: "Instructors",
+        question: "How do I become an instructor?",
+        answer: "Submit an application via the Verification Dashboard.",
+        lastUpdated: "2024-11-20"
+    },
+    {
+        id: 5,
+        category: "Rewards",
+        question: "How do I earn points?",
+        answer: "Earn points by organizing games and participating regularly.",
+        lastUpdated: "2024-11-25"
+    }
+];
+
+export const aiConversationLogs = [
+    {
+        id: 1,
+        username: usersArray[0].username,
+        userMessage: "How to reset password?",
+        aiResponse: "Go to settings and click reset password.",
+        date: "2024-12-07 10:00 AM",
+        helpful: true
+    },
+    {
+        id: 2,
+        username: usersArray[1].username,
+        userMessage: "Refund policy?",
+        aiResponse: "Refunds are processed within 3 days.",
+        date: "2024-12-07 11:30 AM",
+        helpful: false
+    },
+    {
+        id: 3,
+        username: usersArray[2].username,
+        userMessage: "Where can I see my points?",
+        aiResponse: "You can view your points in the Profile section.",
+        date: "2024-12-08 09:15 AM",
+        helpful: true
+    },
+    {
+        id: 4,
+        username: usersArray[3].username,
+        userMessage: "Is there a mobile app?",
+        aiResponse: "Currently we only have a web application.",
+        date: "2024-12-08 02:45 PM"
+    },
+    {
+        id: 5,
+        username: usersArray[4].username,
+        userMessage: "Report a user",
+        aiResponse: "Please go to the user's profile and click 'Report'.",
+        date: "2024-12-09 11:20 AM",
+        helpful: true
+    }
+];
+
 export const instructorEarnings = {
     totalEarnings: 14960.00,
     thisMonth: 480.00,

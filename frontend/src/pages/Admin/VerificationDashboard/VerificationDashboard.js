@@ -10,7 +10,7 @@ const VerificationDashboard = () => {
 
     const filteredRequests = requests.filter(req => {
         if (filter === 'all') return true;
-        return req.type === filter;
+        return req.type.toLowerCase() === filter;
     });
 
     const handleApprove = (id) => {
@@ -38,7 +38,7 @@ const VerificationDashboard = () => {
             approved: { text: 'Approved', class: 'badge-approved' },
             rejected: { text: 'Rejected', class: 'badge-rejected' }
         };
-        const badge = badges[status];
+        const badge = badges[status.toLowerCase()] || badges.pending;
         return <span className={`status-badge ${badge.class}`}>{badge.text}</span>;
     };
 
@@ -52,20 +52,20 @@ const VerificationDashboard = () => {
             <div className="filters">
                 <button onClick={() => setFilter('all')} className={filter === 'all' ? 'active' : ''}>All ({requests.length})</button>
                 <button onClick={() => setFilter('organizer')} className={filter === 'organizer' ? 'active' : ''}>
-                    Organizers ({requests.filter(r => r.type === 'organizer').length})
+                    Organizers ({requests.filter(r => r.type.toLowerCase() === 'organizer').length})
                 </button>
                 <button onClick={() => setFilter('instructor')} className={filter === 'instructor' ? 'active' : ''}>
-                    Instructors ({requests.filter(r => r.type === 'instructor').length})
+                    Instructors ({requests.filter(r => r.type.toLowerCase() === 'instructor').length})
                 </button>
             </div>
 
             <div className="requests-grid">
                 {filteredRequests.map(request => (
-                    <div key={request.id} className="request-card">
+                    <div key={request.id} className={`request-card card-${request.type.toLowerCase()}`}>
                         <div className="request-header">
                             <div>
                                 <h3>{request.name}</h3>
-                                <p className="request-type">{request.type === 'organizer' ? '📋 Organizer' : '👨‍🏫 Instructor'}</p>
+                                <p className="request-type">{request.type.toLowerCase() === 'organizer' ? '📋 Organizer' : '👨‍🏫 Instructor'}</p>
                             </div>
                             {getStatusBadge(request.status)}
                         </div>

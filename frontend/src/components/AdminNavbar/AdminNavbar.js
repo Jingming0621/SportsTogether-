@@ -10,11 +10,11 @@ const AdminNavbar = ({ onNavigate, currentPage, onLogout }) => {
                 Admin<span>Panel</span>
             </button>
             <ul className="navbar-links">
-                <li><button onClick={() => onNavigate('verificationDashboard')} className={`nav-link ${currentPage === 'verificationDashboard' ? 'active' : ''}`}>✅ Verification</button></li>
-                <li><button onClick={() => onNavigate('disputeResolution')} className={`nav-link ${currentPage === 'disputeResolution' ? 'active' : ''}`}>⚖️ Disputes</button></li>
-                <li><button onClick={() => onNavigate('rewardsManagement')} className={`nav-link ${currentPage === 'rewardsManagement' ? 'active' : ''}`}>🎁 Rewards</button></li>
-                <li><button onClick={() => onNavigate('contentModeration')} className={`nav-link ${currentPage === 'contentModeration' ? 'active' : ''}`}>🛡️ Content</button></li>
-                <li><button onClick={() => onNavigate('aiAgentManagement')} className={`nav-link ${currentPage === 'aiAgentManagement' ? 'active' : ''}`}>🤖 AI Agent</button></li>
+                <li><button onClick={() => onNavigate('verificationDashboard')} className={`nav-link ${currentPage === 'verificationDashboard' ? 'active' : ''}`}>Verification</button></li>
+                <li><button onClick={() => onNavigate('disputeResolution')} className={`nav-link ${currentPage === 'disputeResolution' ? 'active' : ''}`}>Disputes</button></li>
+                <li><button onClick={() => onNavigate('rewardsManagement')} className={`nav-link ${currentPage === 'rewardsManagement' ? 'active' : ''}`}>Rewards</button></li>
+                <li><button onClick={() => onNavigate('contentModeration')} className={`nav-link ${currentPage === 'contentModeration' ? 'active' : ''}`}>Content</button></li>
+                <li><button onClick={() => onNavigate('aiAgentManagement')} className={`nav-link ${currentPage === 'aiAgentManagement' ? 'active' : ''}`}>AI Agent</button></li>
             </ul>
             <div className="navbar-auth">
                 <button onClick={() => onNavigate('adminDashboard')} className="nav-link">👤 {username || 'Admin'}</button>

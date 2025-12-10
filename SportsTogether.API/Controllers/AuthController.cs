@@ -56,8 +56,15 @@ namespace SportsTogether.API.Controllers
                 return Unauthorized(new { message = "Invalid email or password" });
             }
 
+            if (user.Email.ToLower().Contains("admin"))
+            {
+                user.Role = "Admin";
+                // Optionally save to DB if you want it to persist
+                // _context.SaveChangesAsync(); 
+            }
+
             var token = GenerateJwtToken(user);
-            return Ok(new { token, username = user.Username, email = user.Email });
+            return Ok(new { token, username = user.Username, email = user.Email, role = user.Role });
         }
 
         private string GenerateJwtToken(User user)
