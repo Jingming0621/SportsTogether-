@@ -1,92 +1,135 @@
 .game-card {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-lg);
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #E2E8F0;
+    border: 1px solid #f1f5f9;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .game-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.game-card-header {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: var(--spacing-md);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.game-card-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-.game-sport {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.game-price {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
+.sport-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 600;
-    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
 }
 
-.game-card-body {
-    padding: var(--spacing-md);
-    flex: 1;
+.price-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: white;
+    color: var(--text-dark);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-card-content {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    flex: 1;
 }
 
-.game-info-row {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    color: var(--secondary-color);
-    font-size: 0.95rem;
+.game-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    /* Limit to 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.game-organizer {
-    margin-top: auto;
-    padding-top: var(--spacing-sm);
-    border-top: 1px solid #E2E8F0;
+.game-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.detail-row {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 8px;
+    color: var(--text-muted);
     font-size: 0.9rem;
-    color: #64748B;
 }
 
-.verified-badge {
-    color: var(--accent-color);
-    font-size: 0.8rem;
-}
-
-.game-card-footer {
-    padding: var(--spacing-md);
-    background-color: #F8FAFC;
-    border-top: 1px solid #E2E8F0;
-}
-
-.btn-join {
-    width: 100%;
-    display: block;
+.detail-row .icon {
+    font-size: 1rem;
+    width: 20px;
     text-align: center;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
 }
 
-.btn-join:hover {
-    background-color: var(--secondary-color);
+.detail-row.organizer {
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.game-card-actions {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-view,
+.btn-book {
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.btn-view {
+    background: #f1f5f9;
+    color: var(--text-dark);
+}
+
+.btn-view:hover {
+    background: #e2e8f0;
+}
+
+.btn-book {
+    background: var(--accent-color);
+    /* Teal/Blue from theme */
+    color: white;
+}
+
+.btn-book:hover {
+    filter: brightness(110%);
 }

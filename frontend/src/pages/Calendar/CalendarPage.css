@@ -1,0 +1,72 @@
+.calendar-page {
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-color: var(--background-light);
+}
+
+.calendar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: white;
+    padding: 20px;
+}
+
+.custom-calendar {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border: none;
+    font-family: inherit;
+}
+
+.react-calendar__tile--active {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.react-calendar__tile--now {
+    background: #e6f7ff;
+    border-radius: 8px;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.calendar-dot {
+    height: 6px;
+    width: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 2px auto 0;
+}
+
+.selected-date-games h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.no-games-message {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    padding: 40px;
+    background: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}

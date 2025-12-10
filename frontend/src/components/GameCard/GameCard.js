@@ -4,39 +4,54 @@ import './GameCard.css';
 const GameCard = ({ game }) => {
     const formattedDate = new Date(game.date).toLocaleDateString(undefined, {
         weekday: 'short',
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
+        day: 'numeric',
+        month: 'short'
     });
 
-    const isTrusted = game.organizer?.trustLevel === 'Verified' || game.organizer?.trustLevel === 'Trusted';
+    // Placeholder images based on sport type
+    const getSportImage = (sport) => {
+        const images = {
+            'Badminton': 'https://images.unsplash.com/photo-1626224583764-847890e058f5?q=80&w=800&auto=format&fit=crop',
+            'Basketball': 'https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop',
+            'Futsal': 'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=800&auto=format&fit=crop',
+            'Tennis': 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800&auto=format&fit=crop',
+            'Ping Pong': 'https://images.unsplash.com/photo-1534158914592-062992bbe900?q=80&w=800&auto=format&fit=crop'
+        };
+        return images[sport] || 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=800&auto=format&fit=crop';
+    };
 
     return (
         <div className="game-card">
-            <div className="game-card-header">
-                <h3 className="game-sport">{game.sportType || game.sport}</h3>
-                <span className="game-price">${game.cost || game.costPerPlayer}</span>
+            <div className="game-card-image" style={{ backgroundImage: `url(${getSportImage(game.sportType)})` }}>
+                <span className="sport-tag">{game.sportType}</span>
+                <div className="price-tag">RM {game.cost || game.costPerPlayer}</div>
             </div>
-            <div className="game-card-body">
-                <div className="game-info-row">
-                    <span>📍</span>
-                    <span>{game.venue}</span>
+
+            <div className="game-card-content">
+                <h3 className="game-title">{game.title}</h3>
+
+                <div className="game-details">
+                    <div className="detail-row">
+                        <span className="icon">📍</span>
+                        <span className="text">{game.venue}</span>
+                    </div>
+                    <div className="detail-row">
+                        <span className="icon">📅</span>
+                        <span className="text">{formattedDate} • {game.time}</span>
+                    </div>
+                    <div className="detail-row organizer">
+                        <span className="icon">👤</span>
+                        <span className="text">Hosted by <strong>{game.organizer?.username || game.organizerName || 'Unknown'}</strong></span>
+                    </div>
                 </div>
-                <div className="game-info-row">
-                    <span>📅</span>
-                    <span>{formattedDate}, {game.time}</span>
+
+                <div className="game-card-actions">
+                    <button className="btn-view">View Details</button>
+                    <button className="btn-book">Book Slot</button>
                 </div>
-                <div className="game-organizer">
-                    <span>Host: {game.organizer?.username || game.organizerName || 'Unknown'}</span>
-                    {isTrusted && <span className="verified-badge" title="Trusted Organizer">⭐</span>}
-                </div>
-            </div>
-            <div className="game-card-footer">
-                <a href={`#join/${game.id}`} className="btn-join">Join Game</a>
             </div>
         </div>
     );
 };
 
 export default GameCard;
-

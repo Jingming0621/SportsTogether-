@@ -12,6 +12,10 @@ import Instructors from './pages/Instructors/Instructors';
 import Rewards from './pages/Rewards/Rewards';
 import ReportIssue from './pages/ReportIssue/ReportIssue';
 import InstructorApplication from './pages/InstructorApplication/InstructorApplication';
+import CalendarPage from './pages/Calendar/CalendarPage';
+import GameHistory from './pages/GameHistory/GameHistory';
+import PlayerAnalytics from './pages/PlayerAnalytics/PlayerAnalytics';
+
 // Instructor Module Pages
 import InstructorDashboard from './pages/InstructorDashboard/InstructorDashboard';
 import InstructorProfile from './pages/InstructorProfile/InstructorProfile';
@@ -20,7 +24,6 @@ import InstructorRewards from './pages/InstructorRewards/InstructorRewards';
 import ClassHistory from './pages/ClassHistory/ClassHistory';
 import InstructorPayouts from './pages/InstructorPayouts/InstructorPayouts';
 import AIChat from './components/AIChat/AIChat';
-import { games } from './data/mockData';
 import './styles/main.css';
 
 function App() {
@@ -93,6 +96,9 @@ function App() {
 
             {/* Player Module Pages */}
             {currentPage === 'home' && <Home onGameClick={handleGameClick} />}
+            {currentPage === 'calendar' && <CalendarPage />}
+            {currentPage === 'gameHistory' && <GameHistory />}
+            {currentPage === 'analytics' && <PlayerAnalytics />}
             {currentPage === 'profile' && <Profile />}
             {currentPage === 'createGame' && <CreateGame onBack={() => navigateTo('home')} />}
             {currentPage === 'gameDetails' && <GameDetails gameId={selectedGameId} onBack={() => navigateTo('home')} />}
