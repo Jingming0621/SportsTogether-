@@ -3,19 +3,22 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
+    /* height: 80px; Removed fixed height */
     background: linear-gradient(135deg, #0f766e 0%, #0891b2 100%);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    /* Standardized padding */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 }
 
 .instructor-navbar .navbar-logo {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 1.5rem;
+    /* Standardized font size */
+    font-weight: 800;
+    /* Standardized font weight */
     color: white;
     padding: 0;
 }
@@ -28,7 +31,8 @@
 .instructor-navbar .navbar-links {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: var(--spacing-md);
+    /* Standardized gap */
     margin: 0;
     padding: 0;
 }
@@ -37,21 +41,143 @@
     background: none;
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 0;
+    /* Removed padding to match nav-link style */
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
-    border-radius: 8px;
+    font-size: 1rem;
+    /* Standardized font size */
+    font-weight: 600;
+    /* Standardized font weight */
     transition: all 0.3s ease;
 }
 
 .instructor-navbar .nav-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    /* Changed hover effect to text color */
+    background: none;
+    /* Removed background hover */
 }
 
 .instructor-navbar .nav-link.active {
-    background: rgba(255, 255, 255, 0.25);
+    color: #ffd700;
+    /* Active state color */
+    background: none;
+    font-weight: 700;
+}
+
+/* Dropdown Styles */
+.instructor-navbar .nav-dropdown {
+    position: relative;
+}
+
+.instructor-navbar .profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    /* Standardized padding */
+}
+
+.instructor-navbar .profile-name {
     font-weight: 600;
+    color: white;
+}
+
+.instructor-navbar .profile-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #ffd700;
+    color: #0f766e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.instructor-navbar .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-width: 220px;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.instructor-navbar .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.instructor-navbar .dropdown-header {
+    padding: 1rem 1rem 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 0.5rem;
+}
+
+.instructor-navbar .user-name {
+    font-weight: 700;
+    color: #0f766e;
+    font-size: 1.1rem;
+}
+
+.instructor-navbar .user-role {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+.instructor-navbar .dropdown-menu button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    color: #334155;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+    width: 100%;
+}
+
+.instructor-navbar .dropdown-menu button:hover {
+    background: #f1f5f9;
+    color: #0f766e;
+}
+
+.instructor-navbar hr {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 4px 0;
+}
+
+.instructor-navbar .navbar-auth {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    /* Standardized gap */
+}
+
+.instructor-navbar .mode-toggle {
+    /* Removed border styles */
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.instructor-navbar .mode-toggle:hover {
+    /* Removed background hover */
+    color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 768px) {
@@ -69,5 +195,10 @@
 
     .instructor-navbar .navbar-auth {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
     }
 }
