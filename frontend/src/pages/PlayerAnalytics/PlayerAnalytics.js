@@ -7,7 +7,6 @@ const PlayerAnalytics = () => {
     const today = new Date();
     const myGames = games.filter(game => {
         const gameDate = new Date(game.date);
-        // Check if user is in roster AND game is in the past
         const isUserInGame = game.roster.some(player => player.id === currentUser.id);
         const isPast = gameDate < today;
         return isUserInGame && isPast;
@@ -16,13 +15,11 @@ const PlayerAnalytics = () => {
     const totalGamesPlayed = myGames.length;
     const totalSpent = myGames.reduce((acc, game) => acc + game.cost, 0);
 
-    // Calculate points dynamically (Cost * 10 or 50 default)
     const totalPointsEarned = myGames.reduce((acc, game) => {
         const points = Math.floor(game.cost * 10) || 50;
         return acc + points;
     }, 0);
 
-    // Calculate favorite sports
     const sportCounts = myGames.reduce((acc, game) => {
         acc[game.sportType] = (acc[game.sportType] || 0) + 1;
         return acc;
@@ -33,12 +30,19 @@ const PlayerAnalytics = () => {
 
     const favoriteSport = sortedSports.length > 0 ? sortedSports[0][0] : 'None';
 
-    // Calculate monthly activity (last 6 months)
-    const last6Months = Array.from({ length: 6 }, (_, i) => {
-        const d = new Date();
-        d.setMonth(d.getMonth() - i);
-        return d.toLocaleString('default', { month: 'short' });
-    }).reverse();
+    // Calculate points progression
+    const sortedGames = [...myGames].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const pointsData = sortedGames.map((game, index) => {
+        const cumulativePoints = sortedGames
+            .slice(0, index + 1)
+            .reduce((sum, g) => sum + (Math.floor(g.cost * 10) || 50), 0);
+        return {
+            date: new Date(game.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+            points: cumulativePoints
+        };
+    });
+
+    const maxPoints = pointsData.length > 0 ? Math.max(...pointsData.map(d => d.points)) : 100;
 
     return (
         <div className="analytics-page">
@@ -68,22 +72,79 @@ const PlayerAnalytics = () => {
                     </div>
                 </div>
 
-                <div className="charts-section">
-                    <div className="chart-container">
-                        <h2>Sports Breakdown</h2>
-                        <div className="sports-list">
-                            {sortedSports.map(([sport, count]) => (
-                                <div key={sport} className="sport-stat-row">
-                                    <span className="sport-name">{sport}</span>
-                                    <div className="progress-bar-bg">
-                                        <div
-                                            className="progress-bar-fill"
-                                            style={{ width: `${(count / totalGamesPlayed) * 100}%` }}
-                                        ></div>
-                                    </div>
-                                    <span className="sport-count">{count} games</span>
+                <div className="charts-grid">
+                    <div className="charts-section">
+                        <div className="chart-container">
+                            <h2>Sports Breakdown</h2>
+                            <div className="bar-chart">
+                                {sortedSports.map(([sport, count]) => {
+                                    const percentage = (count / totalGamesPlayed) * 100;
+                                    return (
+                                        <div key={sport} className="bar-column">
+                                            <span className="bar-value">{count}</span>
+                                            <div
+                                                className="bar-fill"
+                                                style={{ height: `${percentage}%` }}
+                                                title={`${count} games (${Math.round(percentage)}%)`}
+                                            ></div>
+                                            <span className="bar-label">{sport}</span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="charts-section">
+                        <div className="chart-container">
+                            <h2>Points Progression</h2>
+                            {pointsData.length > 0 ? (
+                                <div className="line-chart">
+                                    {pointsData.map((data, index) => {
+                                        const heightPercent = (data.points / maxPoints) * 100;
+                                        const prevHeight = index > 0 ? (pointsData[index - 1].points / maxPoints) * 100 : 0;
+                                        const isIncreasing = index === 0 || data.points > pointsData[index - 1].points;
+
+                                        return (
+                                            <div key={index} className="line-point-wrapper">
+                                                {index > 0 && (
+                                                    <svg className="line-connector" style={{
+                                                        position: 'absolute',
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        left: '-50%',
+                                                        top: 0,
+                                                        pointerEvents: 'none',
+                                                        overflow: 'visible'
+                                                    }}>
+                                                        <line
+                                                            x1="0"
+                                                            y1={`${100 - prevHeight}%`}
+                                                            x2="100%"
+                                                            y2={`${100 - heightPercent}%`}
+                                                            stroke="#3b82f6"
+                                                            strokeWidth="3"
+                                                        />
+                                                    </svg>
+                                                )}
+                                                <div
+                                                    className="line-point"
+                                                    style={{ bottom: `${heightPercent}%` }}
+                                                    title={`${data.date}: ${data.points} points`}
+                                                >
+                                                    <span className="point-value">{data.points}</span>
+                                                    <div className={`point-dot ${isIncreasing ? 'increasing' : 'decreasing'}`}></div>
+                                                </div>
+                                                <span className="point-label">{data.date}</span>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
-                            ))}
+                            ) : (
+                                <div style={{ textAlign: 'center', padding: '40px', color: '#64748b' }}>
+                                    No points data available yet
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
