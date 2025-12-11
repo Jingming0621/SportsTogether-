@@ -125,14 +125,9 @@ const Rewards = () => {
                             <div className="earn-points">+50 points</div>
                         </div>
                         <div className="earn-card">
-                            <div className="earn-icon">🎯</div>
-                            <div className="earn-title">Complete Games</div>
+                            <div className="earn-icon">📅</div>
+                            <div className="earn-title">Organize Games</div>
                             <div className="earn-points">+100 points</div>
-                        </div>
-                        <div className="earn-card">
-                            <div className="earn-icon">⭐</div>
-                            <div className="earn-title">Get Rated 5 Stars</div>
-                            <div className="earn-points">+75 points</div>
                         </div>
                         <div className="earn-card">
                             <div className="earn-icon">👥</div>

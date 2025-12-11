@@ -14,7 +14,7 @@
 }
 
 .profile-header {
-    background-color: var(--background-light);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%) !important;
     padding: 40px;
     color: white;
     display: flex;
@@ -57,8 +57,7 @@
 }
 
 .file-hint {
-    font-size: 11px;
-    opacity: 0.8;
+    display: none;
 }
 
 .profile-info {
@@ -92,7 +91,7 @@
 }
 
 .trust-badge.trusted {
-    background: #3b82f6;
+    background: #10b981;
 }
 
 .trust-badge.new {
@@ -219,7 +218,7 @@
 }
 
 .sport-badge {
-    background-color: var(--background-light);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%) !important;
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -268,7 +267,7 @@
 }
 
 .btn-save {
-    background-color: var(--background-light);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
     color: white;
     flex: 1;
 }
@@ -307,5 +306,3 @@
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 }
-
-

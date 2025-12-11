@@ -1,5 +1,5 @@
 .analytics-page {
-    padding: 20px;
+    padding: 60px 20px 40px;
     min-height: 100vh;
     background-color: var(--background-light);
 }
@@ -11,8 +11,8 @@
 
 .section-title {
     text-align: left;
-    margin-bottom: 20px;
-    font-size: 2rem;
+    margin: 0 0 20px 0;
+    font-size: 36px;
     font-weight: 700;
     color: #1e293b;
 }
@@ -213,4 +213,3 @@
 .line-connector {
     z-index: 0;
 }
-

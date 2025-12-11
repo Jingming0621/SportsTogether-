@@ -16,7 +16,10 @@ const PlayerAnalytics = () => {
     const totalSpent = myGames.reduce((acc, game) => acc + game.cost, 0);
 
     const totalPointsEarned = myGames.reduce((acc, game) => {
-        const points = Math.floor(game.cost * 10) || 50;
+        let points = 50;
+        if (game.organizer && game.organizer.id === currentUser.id) {
+            points = 100;
+        }
         return acc + points;
     }, 0);
 
@@ -35,7 +38,13 @@ const PlayerAnalytics = () => {
     const pointsData = sortedGames.map((game, index) => {
         const cumulativePoints = sortedGames
             .slice(0, index + 1)
-            .reduce((sum, g) => sum + (Math.floor(g.cost * 10) || 50), 0);
+            .reduce((sum, g) => {
+                let points = 50;
+                if (g.organizer && g.organizer.id === currentUser.id) {
+                    points = 100;
+                }
+                return sum + points;
+            }, 0);
         return {
             date: new Date(game.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
             points: cumulativePoints

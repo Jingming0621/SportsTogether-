@@ -1,7 +1,7 @@
 .profile-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
 }
 
 .profile-container {
@@ -14,7 +14,7 @@
 }
 
 .profile-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
     padding: 40px;
     color: white;
     display: flex;
@@ -132,7 +132,7 @@
     top: 30px;
     right: 30px;
     background: white;
-    color: #667eea;
+    color: #FF6B35;
     border: none;
     padding: 12px 24px;
     border-radius: 25px;
@@ -156,7 +156,7 @@
 }
 
 .detail-section h2 {
-    color: #667eea;
+    color: #FF6B35;
     margin-bottom: 15px;
     font-size: 20px;
     font-weight: 600;
@@ -181,7 +181,7 @@
 
 .bio-input:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #FF6B35;
 }
 
 .sports-grid {
@@ -202,14 +202,14 @@
 }
 
 .sport-tag:hover {
-    border-color: #667eea;
+    border-color: #FF6B35;
     transform: translateY(-2px);
 }
 
 .sport-tag.selected {
-    background: #667eea;
+    background: #FF6B35;
     color: white;
-    border-color: #667eea;
+    border-color: #FF6B35;
 }
 
 .sports-list {
@@ -219,7 +219,7 @@
 }
 
 .sport-badge {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
@@ -268,14 +268,14 @@
 }
 
 .btn-save {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
     color: white;
     flex: 1;
 }
 
 .btn-save:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
 }
 
 .btn-cancel {
@@ -307,5 +307,3 @@
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
 }
-
-

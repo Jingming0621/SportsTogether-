@@ -14,7 +14,10 @@ const Profile = () => {
 
     const gamesPlayed = myGames.length;
     const pointsEarned = myGames.reduce((acc, game) => {
-        const points = Math.floor(game.cost * 10) || 50;
+        let points = 50;
+        if (game.organizer && game.organizer.id === currentUser.id) {
+            points = 100;
+        }
         return acc + points;
     }, 0);
 

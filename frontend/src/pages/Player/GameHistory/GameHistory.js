@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { games } from '../../../data/mockData';
+import { games, currentUser } from '../../../data/mockData';
 
 import './GameHistory.css';
 
@@ -89,77 +89,82 @@ const GameHistory = () => {
 
     return (
         <div className="game-history-page">
-            <div className="history-header">
-                <h1 className="section-title">Game History</h1>
-                <div className="filter-controls">
-                    <label>Filter by Sport:</label>
-                    <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-                        <option value="all">All Sports</option>
-                        {sports.map(sport => (
-                            <option key={sport} value={sport}>{sport}</option>
-                        ))}
-                    </select>
+            <div className="history-container">
+                <div className="history-header">
+                    <h1 className="section-title">Game History</h1>
+                    <div className="filter-controls">
+                        <label>Filter by Sport:</label>
+                        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+                            <option value="all">All Sports</option>
+                            {sports.map(sport => (
+                                <option key={sport} value={sport}>{sport}</option>
+                            ))}
+                        </select>
+                    </div>
                 </div>
+
+                {filteredGames.length > 0 ? (
+                    <div className="history-table-container">
+                        <table className="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Sport</th>
+                                    <th>Game Title</th>
+                                    <th>Venue</th>
+                                    <th>Points</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {filteredGames.map(game => {
+                                    // Format time to 12-hour
+                                    const [hours, minutes] = game.time.split(':');
+                                    const timeObj = new Date();
+                                    timeObj.setHours(hours);
+                                    timeObj.setMinutes(minutes);
+                                    const formattedTime = timeObj.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+
+                                    // Calculate points based on participation type
+                                    let points = 50; // Join Game reward
+                                    if (game.organizer && game.organizer.id === currentUser.id) {
+                                        points = 100; // Organize Game reward
+                                    }
+
+                                    const displayStatus = calculateStatus(game);
+
+                                    return (
+                                        <tr
+                                            key={game.id}
+                                            onClick={() => handleRowClick(game)}
+                                            className="clickable-row"
+                                        >
+                                            <td>{new Date(game.date).toLocaleDateString('en-GB')}</td>
+                                            <td>{formattedTime}</td>
+                                            <td>
+                                                <span className="sport-badge-small">{game.sportType}</span>
+                                            </td>
+                                            <td className="game-title-cell">{game.title}</td>
+                                            <td>{game.venue}</td>
+                                            <td>+{points} pts</td>
+                                            <td>
+                                                <span className={`status-badge ${displayStatus.toLowerCase().replace(' ', '-')}`}>
+                                                    {displayStatus}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                ) : (
+                    <div className="no-history">
+                        <p>No past games found.</p>
+                    </div>
+                )}
             </div>
-
-            {filteredGames.length > 0 ? (
-                <div className="history-table-container">
-                    <table className="history-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Sport</th>
-                                <th>Game Title</th>
-                                <th>Venue</th>
-                                <th>Points</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredGames.map(game => {
-                                // Format time to 12-hour
-                                const [hours, minutes] = game.time.split(':');
-                                const timeObj = new Date();
-                                timeObj.setHours(hours);
-                                timeObj.setMinutes(minutes);
-                                const formattedTime = timeObj.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-
-                                // Calculate points (mock logic: 10 points per RM or fixed 50)
-                                const points = Math.floor(game.cost * 10) || 50;
-
-                                const displayStatus = calculateStatus(game);
-
-                                return (
-                                    <tr
-                                        key={game.id}
-                                        onClick={() => handleRowClick(game)}
-                                        className="clickable-row"
-                                    >
-                                        <td>{new Date(game.date).toLocaleDateString('en-GB')}</td>
-                                        <td>{formattedTime}</td>
-                                        <td>
-                                            <span className="sport-badge-small">{game.sportType}</span>
-                                        </td>
-                                        <td className="game-title-cell">{game.title}</td>
-                                        <td>{game.venue}</td>
-                                        <td>+{points} pts</td>
-                                        <td>
-                                            <span className={`status-badge ${displayStatus.toLowerCase().replace(' ', '-')}`}>
-                                                {displayStatus}
-                                            </span>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            ) : (
-                <div className="no-history">
-                    <p>No past games found.</p>
-                </div>
-            )}
 
             {/* Modal */}
 

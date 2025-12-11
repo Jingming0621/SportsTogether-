@@ -10,7 +10,7 @@ export const currentUser = {
     favoriteSports: ["Basketball", "Badminton", "Football"],
     trustLevel: "Trusted", // "New", "Trusted", "Verified"
     gamesPlayed: 47,
-    pointsEarned: 2850,
+    pointsEarned: 500,
     memberSince: "2024-01-15",
     role: "Player" // "Player", "Instructor"
 };
