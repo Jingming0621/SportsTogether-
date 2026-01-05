@@ -1,0 +1,327 @@
+.game-details-page {
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+}
+.game-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.back-btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.back-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateX(-5px);
+}
+.game-header {
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 60px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.game-header-content {
+    max-width: 800px;
+}
+.game-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.sport-badge,
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.sport-badge {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+}
+.status-badge.open {
+    color: white;
+}
+.status-badge.full {
+    color: white;
+}
+.status-badge.pending-review {
+    color: white;
+}
+.game-header h1 {
+    color: white;
+    font-size: 42px;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.game-meta {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+}
+.trust-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+.game-content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+.game-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.details-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.details-card h2 {
+    margin: 0 0 20px 0;
+    color: #1e293b;
+    font-size: 22px;
+}
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.detail-item {
+    display: flex;
+    gap: 15px;
+}
+.detail-icon {
+    font-size: 28px;
+}
+.detail-label {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+.detail-value {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 16px;
+}
+.detail-address {
+    color: #64748b;
+    font-size: 14px;
+    margin-top: 2px;
+}
+.game-description {
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
+}
+.requirements {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    color: #475569;
+    font-size: 14px;
+}
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+.roster-grid {
+    display: grid;
+    gap: 15px;
+}
+.player-card {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.player-card:hover {
+    transform: translateX(5px);
+}
+.player-card img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.player-info {
+    flex: 1;
+}
+.player-name {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+.player-bio {
+    color: #64748b;
+    font-size: 13px;
+}
+.slots-available {
+    margin-top: 15px;
+    padding: 12px;
+    color: #059669;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.game-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.join-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 100px;
+}
+.price-tag {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.price-label {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.price-amount {
+    color: #1e293b;
+    font-size: 36px;
+    font-weight: 700;
+}
+.join-btn {
+    width: 100%;
+    padding: 16px;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.join-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+.join-btn:disabled {
+    cursor: not-allowed;
+}
+.payment-note {
+    text-align: center;
+    color: #10b981;
+    font-size: 13px;
+    margin-top: 12px;
+    font-weight: 600;
+}
+.organizer-badge-large {
+    text-align: center;
+    padding: 16px;
+    color: #d97706;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.organizer-card,
+.safety-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.organizer-card h3,
+.safety-card h3 {
+    margin: 0 0 15px 0;
+    color: #1e293b;
+    font-size: 16px;
+}
+.organizer-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.organizer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.organizer-name {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+.trust-badge-small {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.trust-badge-small.verified {
+    color: #059669;
+}
+.trust-badge-small.trusted {
+    color: #2563eb;
+}
+.trust-badge-small.new {
+    color: #d97706;
+}
+.organizer-bio {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+}
+.safety-card ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #475569;
+    font-size: 14px;
+}
+.safety-card li {
+    margin-bottom: 8px;
+}
+@media (max-width: 968px) {
+    .game-content {
+        grid-template-columns: 1fr;
+    }
+    .join-card {
+        position: static;
+    }
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    .game-header {
+        padding: 40px 25px;
+    }
+    .game-header h1 {
+        font-size: 28px;
+    }
+}
+
+

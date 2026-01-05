@@ -3,6 +3,7 @@ import './Navbar.css';
 
 const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPage }) => {
     const username = localStorage.getItem('username');
+    // eslint-disable-next-line no-unused-vars
     const [showDropdown, setShowDropdown] = useState(null);
 
     const handleNavigate = (page) => {
@@ -17,26 +18,42 @@ const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPag
             </button>
             <ul className="navbar-links">
                 <li><button onClick={() => handleNavigate('home')} className={`nav-link ${currentPage === 'home' ? 'active' : ''}`}>Games</button></li>
-                <li><button onClick={() => handleNavigate('createGame')} className={`nav-link ${currentPage === 'createGame' ? 'active' : ''}`}>Create Game</button></li>
+
                 <li><button onClick={() => handleNavigate('socialFeed')} className={`nav-link ${currentPage === 'socialFeed' ? 'active' : ''}`}>Social</button></li>
                 <li><button onClick={() => handleNavigate('groups')} className={`nav-link ${currentPage === 'groups' ? 'active' : ''}`}>Groups</button></li>
                 <li><button onClick={() => handleNavigate('instructors')} className={`nav-link ${currentPage === 'instructors' ? 'active' : ''}`}>Instructors</button></li>
-                <li><button onClick={() => handleNavigate('rewards')} className={`nav-link ${currentPage === 'rewards' ? 'active' : ''}`}>Rewards</button></li>
 
-                <li className="nav-dropdown">
-                    <button className="nav-link">More ▾</button>
-                    <div className="dropdown-menu">
-                        <button onClick={() => handleNavigate('reportIssue')}>Report Issue</button>
-                        <button onClick={() => handleNavigate('instructorApp')}>Become Instructor</button>
-                    </div>
-                </li>
+
             </ul>
             <div className="navbar-auth">
                 {isAuthenticated ? (
                     <>
-                        <button onClick={() => handleNavigate('instructorDashboard')} className="nav-link">👨‍🏫 Instructor Mode</button>
-                        <button onClick={() => handleNavigate('profile')} className="nav-link">👤 {username || 'Profile'}</button>
-                        <button onClick={onLogout} className="nav-link nav-cta">Logout</button>
+                        <button onClick={() => handleNavigate('instructorDashboard')} className="nav-link mode-toggle">
+                            Instructor Mode
+                        </button>
+                        <div className="nav-dropdown profile-dropdown">
+                            <button className="nav-link profile-btn">
+                                <span className="profile-name">Jing Ming</span>
+                                <div className="profile-icon">JM</div>
+                            </button>
+                            <div className="dropdown-menu right-aligned">
+                                <div className="dropdown-header">
+                                    <div className="user-name">Jing Ming</div>
+                                    <div className="user-role">Player</div>
+                                </div>
+                                <hr />
+                                <button onClick={() => handleNavigate('profile')}>My Profile</button>
+                                <button onClick={() => handleNavigate('calendar')}>My Calendar</button>
+                                <button onClick={() => handleNavigate('gameHistory')}>Game History</button>
+                                <button onClick={() => handleNavigate('analytics')}>My Analytics</button>
+                                <button onClick={() => handleNavigate('rewards')}>Rewards</button>
+                                <hr />
+
+                                <button onClick={() => handleNavigate('instructorApp')}>Become Instructor</button>
+                                <hr />
+                                <button onClick={onLogout} className="logout-btn">Sign Out</button>
+                            </div>
+                        </div>
                     </>
                 ) : (
                     <button onClick={onShowLogin} className="nav-link nav-cta">Sign In</button>
@@ -47,4 +64,3 @@ const Navbar = ({ isAuthenticated, onLogout, onShowLogin, onNavigate, currentPag
 };
 
 export default Navbar;
-

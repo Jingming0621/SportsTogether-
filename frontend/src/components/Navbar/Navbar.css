@@ -1,10 +1,10 @@
 .navbar {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
     padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -19,7 +19,8 @@
 }
 
 .navbar-logo span {
-    color: var(--accent-color);
+    color: #FFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-links {
@@ -27,40 +28,50 @@
     gap: var(--spacing-md);
     list-style: none;
     align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-link {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
     font-size: 1rem;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     border-radius: var(--radius-md);
 }
 
-.nav-link:hover,
-.nav-link.active {
-    color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.1);
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .nav-cta {
-    background-color: var(--accent-color);
-    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.25);
+    padding: 8px 20px;
     border-radius: var(--radius-md);
-    color: var(--text-light);
     font-weight: 600;
-    border: none;
-    cursor: pointer;
 }
 
 .nav-cta:hover {
-    background-color: var(--accent-hover);
+    background: rgba(255, 255, 255, 0.35);
     color: var(--text-light);
+}
+
+.mode-toggle {
+    border: 2px solid white !important;
+    background: transparent !important;
+    color: white !important;
+    padding: 8px 16px !important;
+}
+
+.mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
 }
 
 .navbar-auth {
@@ -71,6 +82,31 @@
 
 .nav-dropdown {
     position: relative;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.profile-icon {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .dropdown-menu {
@@ -97,6 +133,24 @@
     transform: translateY(0);
 }
 
+.dropdown-header {
+    padding: 1rem 1rem 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.user-role {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
 .dropdown-menu button {
     background: none;
     border: none;
@@ -110,7 +164,7 @@
 }
 
 .dropdown-menu button:hover {
-    background: #f1f5f9;
+    background: #FFE8CC;
 }
 
 @media (max-width: 968px) {

@@ -9,8 +9,8 @@ export const currentUser = {
     profilePicture: "https://i.pravatar.cc/150?img=33",
     favoriteSports: ["Basketball", "Badminton", "Football"],
     trustLevel: "Trusted", // "New", "Trusted", "Verified"
-    gamesPlayed: 47,
-    pointsEarned: 2850,
+    gamesPlayed: 13, // Tallied with Analytics (13 completed games)
+    pointsEarned: 900, // Tallied with Analytics (Mix of 100pts for organizing, 50pts for playing)
     memberSince: "2024-01-15",
     role: "Player" // "Player", "Instructor"
 };
@@ -62,16 +62,17 @@ export const games = [
         id: 1,
         sportType: "Basketball",
         title: "Friday Night Basketball",
-        date: "2024-12-06",
+        date: "2025-12-06",
         time: "19:00",
         venue: "USM Sports Complex",
         venueAddress: "Universiti Sains Malaysia, Penang",
-        cost: 15.00,
+        area: "Gelugor",
+        cost: 3.00,
         maxPlayers: 10,
         currentPlayers: 7,
         status: "Open",
         organizer: usersArray[0],
-        roster: [usersArray[0], usersArray[1], usersArray[2], usersArray[3]],
+        roster: [currentUser, usersArray[0], usersArray[1], usersArray[2], usersArray[3]],
         description: "Casual basketball game. All skill levels welcome! We'll split into teams and play a few rounds.",
         requirements: "Bring your own water bottle",
         image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400"
@@ -80,16 +81,17 @@ export const games = [
         id: 2,
         sportType: "Badminton",
         title: "Weekend Badminton Session",
-        date: "2024-12-07",
+        date: "2025-12-07",
         time: "09:00",
         venue: "Queensbay Badminton Court",
         venueAddress: "Queensbay Mall, Bayan Lepas",
-        cost: 20.00,
+        area: "Bayan Lepas",
+        cost: 5.00,
         maxPlayers: 8,
         currentPlayers: 8,
         status: "Full",
         organizer: usersArray[1],
-        roster: [usersArray[1], usersArray[2], usersArray[3]],
+        roster: [currentUser, usersArray[1], usersArray[2], usersArray[3]],
         description: "Doubles badminton session. Intermediate level players preferred.",
         requirements: "Bring your own racket",
         image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
@@ -97,38 +99,398 @@ export const games = [
     {
         id: 3,
         sportType: "Football",
-        title: "Sunday Football Match",
-        date: "2024-12-08",
-        time: "16:00",
-        venue: "Penang Youth Park",
-        venueAddress: "Jalan Bukit Gambir, Penang",
+        title: "5-a-side Football Match",
+        date: "2025-12-08", // Future
+        time: "17:00",
+        venue: "Penang City Stadium",
+        venueAddress: "Lorong Kulit, George Town",
+        area: "George Town",
         cost: 10.00,
+        maxPlayers: 10,
+        currentPlayers: 10,
+        status: "Full",
+        organizer: usersArray[2],
+        roster: [currentUser, usersArray[2], usersArray[3], usersArray[4], usersArray[0]],
+        description: "Competitive 5-a-side match. Winner takes all (bragging rights)!",
+        requirements: "Football boots required",
+        image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
+    },
+    // History Scenarios
+    {
+        id: 101,
+        sportType: "Basketball",
+        title: "Weekly Basketball Meetup",
+        date: "2025-12-09", // Yesterday
+        time: "18:00",
+        venue: "USM Court",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 5.00,
+        maxPlayers: 10,
+        currentPlayers: 10,
+        status: "Completed", // Manually marked
+        organizer: currentUser,
+        roster: [currentUser],
+        description: "Great game!",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400"
+    },
+
+    {
+        id: 103,
+        sportType: "Tennis",
+        title: "Morning Tennis Practice",
+        date: "2025-12-05", // > 2 days ago
+        time: "08:00",
+        venue: "City Tennis Club",
+        venueAddress: "George Town",
+        area: "George Town",
+        cost: 15.00,
+        maxPlayers: 2,
+        currentPlayers: 2,
+        status: "Open", // Should be auto-completed
+        organizer: currentUser,
+        roster: [currentUser],
+        description: "Morning rally.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=400"
+    },
+
+
+    {
+        id: 5,
+        sportType: "Badminton",
+        title: "Evening Badminton Smash",
+        date: "2025-12-12",
+        time: "20:00",
+        venue: "USM Sports Complex",
+        venueAddress: "Universiti Sains Malaysia",
+        area: "Gelugor",
+        cost: 4.00,
+        maxPlayers: 6,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: usersArray[0],
+        roster: [usersArray[0], usersArray[2]],
+        description: "Friendly matches, intermediate level.",
+        requirements: "Bring rackets",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 6,
+        sportType: "Futsal",
+        title: "Weekend Futsal Kickoff",
+        date: "2025-12-14",
+        time: "10:00",
+        venue: "Sports Planet Penang",
+        venueAddress: "Bayan Lepas",
+        area: "Bayan Lepas",
+        cost: 3.00,
+        maxPlayers: 10,
+        currentPlayers: 8,
+        status: "Open",
+        organizer: usersArray[2],
+        roster: [usersArray[2], usersArray[1], usersArray[4]],
+        description: "5-a-side futsal, fun game.",
+        requirements: "Futsal shoes required",
+        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400"
+    },
+
+
+
+    {
+        id: 10,
+        sportType: "Badminton",
+        title: "Christmas Eve Badminton",
+        date: "2025-12-24",
+        time: "18:00",
+        venue: "USM Sports Complex",
+        venueAddress: "Universiti Sains Malaysia",
+        area: "Gelugor",
+        cost: 15.00,
+        maxPlayers: 8,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: currentUser,
+        roster: [currentUser, usersArray[1]],
+        description: "Pre-Christmas workout!",
+        requirements: "Bring rackets",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 11,
+        sportType: "Futsal",
+        title: "Year End Futsal",
+        date: "2025-12-30",
+        time: "20:00",
+        venue: "Sports Planet",
+        venueAddress: "Bayan Lepas",
+        area: "Bayan Lepas",
+        cost: 20.00,
+        maxPlayers: 10,
+        currentPlayers: 8,
+        status: "Open",
+        organizer: usersArray[2],
+        roster: [usersArray[2], currentUser],
+        description: "Last game of the year!",
+        requirements: "Futsal shoes",
+        image: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?w=400"
+    },
+    {
+        id: 12,
+        sportType: "Badminton",
+        title: "Morning Badminton Drill",
+        date: "2025-12-10", // Today
+        time: "08:00", // Past time
+        venue: "USM Sports Complex",
+        venueAddress: "Universiti Sains Malaysia",
+        area: "Gelugor",
+        cost: 5.00,
+        maxPlayers: 4,
+        currentPlayers: 4,
+        status: "Open", // Pending completion
+        organizer: currentUser,
+        roster: [currentUser, usersArray[1]],
+        description: "Morning practice session.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 13,
+        sportType: "Football",
+        title: "Disputed Football Match",
+        date: "2025-12-08",
+        time: "17:00",
+        venue: "City Stadium",
+        venueAddress: "George Town",
+        area: "George Town",
+        cost: 10.00,
+        maxPlayers: 10,
+        currentPlayers: 10,
+        status: "Under Review", // Reported
+        organizer: usersArray[2],
+        roster: [currentUser, usersArray[2]],
+        description: "Match under review due to report.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
+    },
+    // December 2025 Games
+    {
+        id: 14,
+        sportType: "Volleyball",
+        title: "Evening Volleyball",
+        date: "2025-12-15",
+        time: "18:00",
+        venue: "Azman Hashim Hall",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 6.00,
+        maxPlayers: 12,
+        currentPlayers: 8,
+        status: "Open",
+        organizer: usersArray[4],
+        roster: [currentUser, usersArray[4], usersArray[1]],
+        description: "Casual volleyball game.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1612872087720-48ca45e4c690?w=400"
+    },
+    {
+        id: 15,
+        sportType: "Tennis",
+        title: "Tennis Singles",
+        date: "2025-12-20",
+        time: "17:00",
+        venue: "Bukit Jambul Court",
+        venueAddress: "Bukit Jambul",
+        area: "Bayan Lepas",
+        cost: 20.00,
+        maxPlayers: 2,
+        currentPlayers: 1,
+        status: "Open",
+        organizer: usersArray[1],
+        roster: [usersArray[1]],
+        description: "Looking for a sparring partner.",
+        requirements: "Bring your own racket",
+        image: "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=400"
+    },
+    {
+        id: 16,
+        sportType: "Ping Pong",
+        title: "Table Tennis Fun",
+        date: "2025-12-28",
+        time: "20:00",
+        venue: "Desa Siswa",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 2.00,
+        maxPlayers: 4,
+        currentPlayers: 2,
+        status: "Open",
+        organizer: usersArray[3],
+        roster: [currentUser, usersArray[3]],
+        description: "Just for fun.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1534158914592-062992fbe900?w=400"
+    },
+    // January 2026 Games
+    {
+        id: 17,
+        sportType: "Badminton",
+        title: "New Year Badminton",
+        date: "2026-01-02", // Past
+        time: "18:00",
+        venue: "USM Sports Complex",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 10.00,
+        maxPlayers: 4,
+        currentPlayers: 4,
+        status: "Completed",
+        organizer: currentUser,
+        roster: [currentUser, usersArray[1], usersArray[2], usersArray[3]],
+        description: "First game of the year!",
+        requirements: "Bring rackets",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 18,
+        sportType: "Futsal",
+        title: "Futsal Night",
+        date: "2026-01-05", // Past
+        time: "20:00",
+        venue: "Penang Futsal Arena",
+        venueAddress: "Bayan Lepas",
+        area: "Bayan Lepas",
+        cost: 15.00,
+        maxPlayers: 10,
+        currentPlayers: 10,
+        status: "Completed",
+        organizer: usersArray[2],
+        roster: [currentUser, usersArray[2], usersArray[0], usersArray[4]],
+        description: "Weekly futsal night.",
+        requirements: "Futsal shoes",
+        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400"
+    },
+    {
+        id: 19,
+        sportType: "Basketball",
+        title: "3v3 Basketball",
+        date: "2026-01-08", // Upcoming
+        time: "17:30",
+        venue: "Sungai Dua Court",
+        venueAddress: "Sungai Dua",
+        area: "Gelugor",
+        cost: 5.00,
+        maxPlayers: 6,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: usersArray[0],
+        roster: [usersArray[0], usersArray[3], currentUser],
+        description: "Half court 3v3.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400"
+    },
+    {
+        id: 20,
+        sportType: "Badminton",
+        title: "Badminton Friendly",
+        date: "2026-01-20", // Upcoming
+        time: "19:00",
+        venue: "Relau Sports Hall",
+        venueAddress: "Relau",
+        area: "Bayan Lepas",
+        cost: 12.00,
+        maxPlayers: 6,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: usersArray[1],
+        roster: [usersArray[1], currentUser],
+        description: "Friendly games.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 21,
+        sportType: "Football",
+        title: "Full Pitch Football",
+        date: "2026-01-25", // Upcoming
+        time: "16:00",
+        venue: "USM Stadium",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 8.00,
         maxPlayers: 22,
         currentPlayers: 15,
         status: "Open",
         organizer: usersArray[2],
-        roster: [usersArray[2], usersArray[3]],
-        description: "11v11 football match. Need a few more players to complete the teams!",
-        requirements: "Shin guards recommended",
-        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400"
+        roster: [usersArray[2], currentUser, usersArray[4]],
+        description: "11-a-side match.",
+        requirements: "Boots required",
+        image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
+    }
+];
+
+export const studentClasses = [
+    {
+        id: 1,
+        sport: "Badminton",
+        title: "Badminton Coaching",
+        instructor: "Coach Lee",
+        date: "2025-12-20",
+        timeSlot: "10:00 - 12:00",
+        venue: "USM Sports Complex",
+        status: "Upcoming"
     },
     {
-        id: 4,
-        sportType: "Tennis",
-        title: "Morning Tennis Practice",
-        date: "2024-12-05",
-        time: "07:00",
+        id: 2,
+        sport: "Tennis",
+        title: "Tennis Drills",
+        instructor: "Coach Sarah",
+        date: "2025-12-22",
+        timeSlot: "16:00 - 18:00",
         venue: "Penang Tennis Centre",
-        venueAddress: "Jalan Utama, George Town",
-        cost: 25.00,
-        maxPlayers: 4,
-        currentPlayers: 2,
-        status: "Pending Review",
-        organizer: usersArray[3],
-        roster: [usersArray[3]],
-        description: "Early morning tennis for serious players.",
-        requirements: "Advanced level only",
-        image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400"
+        status: "Upcoming"
+    },
+    {
+        id: 3,
+        sport: "Swimming",
+        title: "Swimming Lessons",
+        instructor: "Coach Tan",
+        date: "2025-12-25",
+        timeSlot: "09:00 - 10:30",
+        venue: "USM Pool",
+        status: "Upcoming"
+    },
+    // January 2026 Classes
+    {
+        id: 4,
+        sport: "Tennis",
+        title: "Tennis Coaching",
+        instructor: "Coach Sarah",
+        date: "2026-01-03", // Past
+        timeSlot: "08:00 - 10:00",
+        venue: "Penang Tennis Centre",
+        status: "Completed"
+    },
+    {
+        id: 5,
+        sport: "Badminton",
+        title: "Advanced Badminton",
+        instructor: "Coach Lee",
+        date: "2026-01-14", // Upcoming
+        timeSlot: "18:00 - 20:00",
+        venue: "USM Sports Complex",
+        status: "Upcoming"
+    },
+    {
+        id: 6,
+        sport: "Yoga",
+        title: "Morning Yoga",
+        instructor: "Instructor May",
+        date: "2026-01-22", // Upcoming
+        timeSlot: "07:00 - 08:00",
+        venue: "USM Gym",
+        status: "Upcoming"
     }
 ];
 
@@ -618,6 +980,318 @@ export const classHistory = [
         rating: 4.7,
         feedback: "Good session overall.",
         status: "Completed"
+    }
+];
+
+// ==================== ADMIN MODULE MOCK DATA ====================
+
+export const verificationRequests = [
+    {
+        id: 1,
+        user: usersArray[3],
+        name: "Jessica Wong",
+        email: "jessica@example.com",
+        type: "Instructor",
+        date: "2024-12-01",
+        submittedDate: "2024-12-01",
+        status: "Pending",
+        documents: ["cert.pdf", "id.jpg"],
+        sports: ["Tennis"],
+        experience: 2
+    },
+    {
+        id: 2,
+        user: usersArray[4],
+        name: "David Lee",
+        email: "david@example.com",
+        type: "Organizer",
+        date: "2024-12-02",
+        submittedDate: "2024-12-02",
+        status: "Pending",
+        documents: ["venue_booking.pdf"]
+    },
+    {
+        id: 3,
+        user: usersArray[2],
+        name: "Michael Chen",
+        email: "michael@example.com",
+        type: "Instructor",
+        date: "2024-11-20",
+        submittedDate: "2024-11-20",
+        status: "Approved",
+        documents: ["coaching_license.pdf"],
+        sports: ["Badminton", "Squash"],
+        experience: 5
+    },
+    {
+        id: 4,
+        user: usersArray[1],
+        name: "Sarah Tan",
+        email: "sarah@example.com",
+        type: "Organizer",
+        date: "2024-11-25",
+        submittedDate: "2024-11-25",
+        status: "Rejected",
+        rejectionReason: "Incomplete venue documentation",
+        documents: ["incomplete_form.pdf"]
+    },
+    {
+        id: 5,
+        user: usersArray[0],
+        name: "Alex Lim",
+        email: "alex@example.com",
+        type: "Instructor",
+        date: "2024-11-28",
+        submittedDate: "2024-11-28",
+        status: "Rejected",
+        rejectionReason: "Certificate expired",
+        documents: ["expired_cert.pdf"],
+        sports: ["Swimming"],
+        experience: 1
+    }
+];
+
+export const disputeCases = [
+    {
+        id: 1,
+        reporter: usersArray[0].username,
+        reportedUser: usersArray[1].username,
+        type: "Game Issue",
+        reason: "No-show",
+        reportDate: "2024-12-03",
+        status: "Open",
+        severity: "Low",
+        description: "User did not show up for the game.",
+        transactionAmount: 15.00
+    },
+    {
+        id: 2,
+        reporter: usersArray[2].username,
+        reportedUser: usersArray[3].username,
+        type: "Behavior",
+        reason: "Harassment",
+        reportDate: "2024-12-04",
+        status: "Investigating",
+        severity: "High",
+        description: "User was rude in chat."
+    },
+    {
+        id: 3,
+        reporter: usersArray[4].username,
+        reportedUser: usersArray[0].username,
+        type: "Payment",
+        reason: "Overcharged",
+        reportDate: "2024-11-30",
+        status: "Resolved",
+        resolution: "Refund Issued",
+        severity: "Medium",
+        description: "Charged twice for the same booking.",
+        transactionAmount: 50.00
+    },
+    {
+        id: 4,
+        reporter: usersArray[1].username,
+        reportedUser: usersArray[2].username,
+        type: "General",
+        reason: "Spamming",
+        reportDate: "2024-11-28",
+        status: "Resolved",
+        resolution: "Warning Issued",
+        severity: "Low",
+        description: "Sending multiple spam messages in group chat."
+    },
+    {
+        id: 5,
+        reporter: usersArray[3].username,
+        reportedUser: usersArray[4].username,
+        type: "Safety",
+        reason: "Dangerous Play",
+        reportDate: "2024-11-15",
+        status: "Resolved",
+        resolution: "User Banned",
+        severity: "High",
+        description: "Intentionally trying to injure others during football."
+    }
+];
+
+export const rewardsData = [
+    {
+        id: 1,
+        partnerName: "Decathlon",
+        voucherType: "RM10 Voucher",
+        pointCost: 500,
+        description: "RM10 off at Decathlon",
+        active: true
+    },
+    {
+        id: 2,
+        partnerName: "Sports Planet",
+        voucherType: "Free Game Pass",
+        pointCost: 1000,
+        description: "One free game session",
+        active: true
+    },
+    {
+        id: 3,
+        partnerName: "Nike",
+        voucherType: "15% Discount",
+        pointCost: 800,
+        description: "15% off storewide",
+        active: false
+    },
+    {
+        id: 4,
+        partnerName: "Adidas",
+        voucherType: "RM20 Voucher",
+        pointCost: 1500,
+        description: "RM20 off with min spend RM100",
+        active: true
+    },
+    {
+        id: 5,
+        partnerName: "Local Gym",
+        voucherType: "Day Pass",
+        pointCost: 300,
+        description: "One day access to gym facilities",
+        active: false
+    }
+];
+
+export const flaggedContent = [
+    {
+        id: 1,
+        type: "comment",
+        content: "This is a spam comment.",
+        author: "SpammerUser",
+        reason: "Spam",
+        reportCount: 1,
+        flaggedDate: "2024-12-05",
+        status: "flagged",
+        severity: "low"
+    },
+    {
+        id: 2,
+        type: "post",
+        content: "Inappropriate image.",
+        author: "BadUser",
+        reason: "Inappropriate Content",
+        reportCount: 3,
+        flaggedDate: "2024-12-06",
+        status: "flagged",
+        severity: "high"
+    },
+    {
+        id: 3,
+        type: "group",
+        content: "Get Rich Quick Scheme",
+        author: "Scammer101",
+        reason: "Scam/Fraud",
+        reportCount: 10,
+        flaggedDate: "2024-12-01",
+        status: "deleted",
+        severity: "high"
+    },
+    {
+        id: 4,
+        type: "post",
+        content: "Looking for players for badminton.",
+        author: "RegularPlayer",
+        reason: "False Report",
+        reportCount: 1,
+        flaggedDate: "2024-12-04",
+        status: "approved",
+        severity: "low"
+    },
+    {
+        id: 5,
+        type: "comment",
+        content: "You are terrible at this game!",
+        author: "ToxicPlayer",
+        reason: "Harassment",
+        reportCount: 2,
+        flaggedDate: "2024-12-07",
+        status: "flagged",
+        severity: "medium"
+    }
+];
+
+export const aiKnowledgeBase = [
+    {
+        id: 1,
+        category: "General",
+        question: "How do I create a game?",
+        answer: "To create a game, go to the Create Game page...",
+        lastUpdated: "2024-11-01"
+    },
+    {
+        id: 2,
+        category: "Payments",
+        question: "What payment methods are accepted?",
+        answer: "We accept Visa, Mastercard, and e-wallets.",
+        lastUpdated: "2024-11-15"
+    },
+    {
+        id: 3,
+        category: "Games",
+        question: "How do I join a game?",
+        answer: "Browse the available games list and click 'Join'.",
+        lastUpdated: "2024-11-10"
+    },
+    {
+        id: 4,
+        category: "Instructors",
+        question: "How do I become an instructor?",
+        answer: "Submit an application via the Verification Dashboard.",
+        lastUpdated: "2024-11-20"
+    },
+    {
+        id: 5,
+        category: "Rewards",
+        question: "How do I earn points?",
+        answer: "Earn points by organizing games and participating regularly.",
+        lastUpdated: "2024-11-25"
+    }
+];
+
+export const aiConversationLogs = [
+    {
+        id: 1,
+        username: usersArray[0].username,
+        userMessage: "How to reset password?",
+        aiResponse: "Go to settings and click reset password.",
+        date: "2024-12-07 10:00 AM",
+        helpful: true
+    },
+    {
+        id: 2,
+        username: usersArray[1].username,
+        userMessage: "Refund policy?",
+        aiResponse: "Refunds are processed within 3 days.",
+        date: "2024-12-07 11:30 AM",
+        helpful: false
+    },
+    {
+        id: 3,
+        username: usersArray[2].username,
+        userMessage: "Where can I see my points?",
+        aiResponse: "You can view your points in the Profile section.",
+        date: "2024-12-08 09:15 AM",
+        helpful: true
+    },
+    {
+        id: 4,
+        username: usersArray[3].username,
+        userMessage: "Is there a mobile app?",
+        aiResponse: "Currently we only have a web application.",
+        date: "2024-12-08 02:45 PM"
+    },
+    {
+        id: 5,
+        username: usersArray[4].username,
+        userMessage: "Report a user",
+        aiResponse: "Please go to the user's profile and click 'Report'.",
+        date: "2024-12-09 11:20 AM",
+        helpful: true
     }
 ];
 

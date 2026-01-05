@@ -1,0 +1,251 @@
+.manage-sessions-page {
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+    background: #A7E6FF;
+    /* Match Instructor Dashboard */
+}
+
+.sessions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sessions-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.sessions-header h1 {
+    color: #1e293b;
+    font-size: 36px;
+    margin: 0 0 10px 0;
+}
+
+.sessions-header .subtitle {
+    color: #64748b;
+    font-size: 18px;
+    margin: 0;
+}
+
+.create-session-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    color: #4facfe;
+    border: 2px solid #4facfe;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-session-btn:hover {
+    background: #4facfe;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.sessions-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tab-btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    padding: 10px 24px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-color: #4facfe;
+    color: white;
+}
+
+.sessions-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.session-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.session-header-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.session-date-block {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 70px;
+}
+
+.session-date-block .date {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.session-date-block .month {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.session-info {
+    flex: 1;
+}
+
+.session-info h3 {
+    margin: 0 0 8px 0;
+    color: #1e293b;
+    font-size: 20px;
+}
+
+.session-time,
+.session-venue {
+    margin: 4px 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-badge.available {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.status-badge.confirmed {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.session-details-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 2px solid #f1f5f9;
+    border-bottom: 2px solid #f1f5f9;
+    margin: 15px 0;
+}
+
+.participants-info,
+.price-info {
+    font-size: 15px;
+    color: #475569;
+}
+
+.price-info strong {
+    color: #4facfe;
+    font-size: 24px;
+}
+
+.participants-list {
+    margin: 15px 0;
+}
+
+.participant-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.participant-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.pending-tag {
+    margin-left: auto;
+    background: #fef3c7;
+    color: #d97706;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.session-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.accept-btn,
+.decline-btn,
+.cancel-btn-session {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accept-btn {
+    background: #10b981;
+    color: white;
+}
+
+.decline-btn {
+    background: #f87171;
+    color: white;
+}
+
+.cancel-btn-session {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+@media (max-width: 768px) {
+    .sessions-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .create-session-btn {
+        width: 100%;
+        position: static;
+        /* Reset absolute positioning on mobile */
+    }
+
+    .session-header-row {
+        flex-wrap: wrap;
+    }
+}

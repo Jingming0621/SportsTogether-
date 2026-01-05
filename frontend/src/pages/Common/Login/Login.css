@@ -1,0 +1,112 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #FF5722 0%, #03A9F4 100%);
+}
+
+.login-card {
+    background: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #03A9F4;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: var(--spacing-sm);
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.back-button:hover {
+    color: #FFC107;
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF5722;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #03A9F4;
+}
+
+.form-input {
+    padding: var(--spacing-sm);
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #FFC107;
+}
+
+.btn-submit {
+    padding: var(--spacing-sm);
+    background-color: #FFC107;
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-hover);
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.success-message {
+    color: #4CAF50;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.toggle-mode {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    color: #03A9F4;
+}
+
+.toggle-link {
+    color: #FFC107;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
