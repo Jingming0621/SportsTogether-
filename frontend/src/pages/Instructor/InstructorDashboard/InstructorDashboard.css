@@ -1,7 +1,20 @@
 .instructor-dashboard-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #A1FFCE 0%, #FAFFD1 100%);
+    /* Light Green/Yellowish Cyan */
+    background: #C4E0E5;
+    /* Fallback */
+    background: linear-gradient(to right, #4CA1AF, #C4E0E5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(180deg, #22d3ee 0%, #a5f3fc 100%);
+    /* Cyan gradient based on image */
+    background: #bae6fd;
+    /* Sky blue solid fallback */
+    background: linear-gradient(180deg, #22d3ee 0%, #bae6fd 100%);
+    /* Cyan to light blue */
+    background: #A7E6FF;
+    /* Match image light blue */
 }
 
 .dashboard-container {
@@ -153,4 +166,3 @@
         grid-template-columns: 1fr;
     }
 }
-

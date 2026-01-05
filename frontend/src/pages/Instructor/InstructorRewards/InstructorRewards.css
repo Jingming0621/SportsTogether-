@@ -1,7 +1,8 @@
 .instructor-rewards-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    background: #A7E6FF;
+    /* Match Instructor Dashboard */
 }
 
 .rewards-container {
@@ -289,4 +290,3 @@
         grid-template-columns: 1fr;
     }
 }
-

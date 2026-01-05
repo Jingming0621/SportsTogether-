@@ -1,7 +1,8 @@
 .instructor-payouts-page {
     min-height: 100vh;
     padding: 60px 20px 40px;
-    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    background: #A7E6FF;
+    /* Match Instructor Dashboard */
 }
 
 .payouts-container {
@@ -382,4 +383,3 @@
         text-align: center;
     }
 }
-

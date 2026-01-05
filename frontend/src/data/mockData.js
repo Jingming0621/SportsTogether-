@@ -9,8 +9,8 @@ export const currentUser = {
     profilePicture: "https://i.pravatar.cc/150?img=33",
     favoriteSports: ["Basketball", "Badminton", "Football"],
     trustLevel: "Trusted", // "New", "Trusted", "Verified"
-    gamesPlayed: 47,
-    pointsEarned: 500,
+    gamesPlayed: 13, // Tallied with Analytics (13 completed games)
+    pointsEarned: 900, // Tallied with Analytics (Mix of 100pts for organizing, 50pts for playing)
     memberSince: "2024-01-15",
     role: "Player" // "Player", "Instructor"
 };
@@ -273,6 +273,160 @@ export const games = [
         description: "Match under review due to report.",
         requirements: "None",
         image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
+    },
+    // December 2025 Games
+    {
+        id: 14,
+        sportType: "Volleyball",
+        title: "Evening Volleyball",
+        date: "2025-12-15",
+        time: "18:00",
+        venue: "Azman Hashim Hall",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 6.00,
+        maxPlayers: 12,
+        currentPlayers: 8,
+        status: "Open",
+        organizer: usersArray[4],
+        roster: [currentUser, usersArray[4], usersArray[1]],
+        description: "Casual volleyball game.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1612872087720-48ca45e4c690?w=400"
+    },
+    {
+        id: 15,
+        sportType: "Tennis",
+        title: "Tennis Singles",
+        date: "2025-12-20",
+        time: "17:00",
+        venue: "Bukit Jambul Court",
+        venueAddress: "Bukit Jambul",
+        area: "Bayan Lepas",
+        cost: 20.00,
+        maxPlayers: 2,
+        currentPlayers: 1,
+        status: "Open",
+        organizer: usersArray[1],
+        roster: [usersArray[1]],
+        description: "Looking for a sparring partner.",
+        requirements: "Bring your own racket",
+        image: "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=400"
+    },
+    {
+        id: 16,
+        sportType: "Ping Pong",
+        title: "Table Tennis Fun",
+        date: "2025-12-28",
+        time: "20:00",
+        venue: "Desa Siswa",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 2.00,
+        maxPlayers: 4,
+        currentPlayers: 2,
+        status: "Open",
+        organizer: usersArray[3],
+        roster: [currentUser, usersArray[3]],
+        description: "Just for fun.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1534158914592-062992fbe900?w=400"
+    },
+    // January 2026 Games
+    {
+        id: 17,
+        sportType: "Badminton",
+        title: "New Year Badminton",
+        date: "2026-01-02", // Past
+        time: "18:00",
+        venue: "USM Sports Complex",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 10.00,
+        maxPlayers: 4,
+        currentPlayers: 4,
+        status: "Completed",
+        organizer: currentUser,
+        roster: [currentUser, usersArray[1], usersArray[2], usersArray[3]],
+        description: "First game of the year!",
+        requirements: "Bring rackets",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 18,
+        sportType: "Futsal",
+        title: "Futsal Night",
+        date: "2026-01-05", // Past
+        time: "20:00",
+        venue: "Penang Futsal Arena",
+        venueAddress: "Bayan Lepas",
+        area: "Bayan Lepas",
+        cost: 15.00,
+        maxPlayers: 10,
+        currentPlayers: 10,
+        status: "Completed",
+        organizer: usersArray[2],
+        roster: [currentUser, usersArray[2], usersArray[0], usersArray[4]],
+        description: "Weekly futsal night.",
+        requirements: "Futsal shoes",
+        image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400"
+    },
+    {
+        id: 19,
+        sportType: "Basketball",
+        title: "3v3 Basketball",
+        date: "2026-01-08", // Upcoming
+        time: "17:30",
+        venue: "Sungai Dua Court",
+        venueAddress: "Sungai Dua",
+        area: "Gelugor",
+        cost: 5.00,
+        maxPlayers: 6,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: usersArray[0],
+        roster: [usersArray[0], usersArray[3], currentUser],
+        description: "Half court 3v3.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400"
+    },
+    {
+        id: 20,
+        sportType: "Badminton",
+        title: "Badminton Friendly",
+        date: "2026-01-20", // Upcoming
+        time: "19:00",
+        venue: "Relau Sports Hall",
+        venueAddress: "Relau",
+        area: "Bayan Lepas",
+        cost: 12.00,
+        maxPlayers: 6,
+        currentPlayers: 4,
+        status: "Open",
+        organizer: usersArray[1],
+        roster: [usersArray[1], currentUser],
+        description: "Friendly games.",
+        requirements: "None",
+        image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400"
+    },
+    {
+        id: 21,
+        sportType: "Football",
+        title: "Full Pitch Football",
+        date: "2026-01-25", // Upcoming
+        time: "16:00",
+        venue: "USM Stadium",
+        venueAddress: "USM",
+        area: "Gelugor",
+        cost: 8.00,
+        maxPlayers: 22,
+        currentPlayers: 15,
+        status: "Open",
+        organizer: usersArray[2],
+        roster: [usersArray[2], currentUser, usersArray[4]],
+        description: "11-a-side match.",
+        requirements: "Boots required",
+        image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400"
     }
 ];
 
@@ -305,6 +459,37 @@ export const studentClasses = [
         date: "2025-12-25",
         timeSlot: "09:00 - 10:30",
         venue: "USM Pool",
+        status: "Upcoming"
+    },
+    // January 2026 Classes
+    {
+        id: 4,
+        sport: "Tennis",
+        title: "Tennis Coaching",
+        instructor: "Coach Sarah",
+        date: "2026-01-03", // Past
+        timeSlot: "08:00 - 10:00",
+        venue: "Penang Tennis Centre",
+        status: "Completed"
+    },
+    {
+        id: 5,
+        sport: "Badminton",
+        title: "Advanced Badminton",
+        instructor: "Coach Lee",
+        date: "2026-01-14", // Upcoming
+        timeSlot: "18:00 - 20:00",
+        venue: "USM Sports Complex",
+        status: "Upcoming"
+    },
+    {
+        id: 6,
+        sport: "Yoga",
+        title: "Morning Yoga",
+        instructor: "Instructor May",
+        date: "2026-01-22", // Upcoming
+        timeSlot: "07:00 - 08:00",
+        venue: "USM Gym",
         status: "Upcoming"
     }
 ];

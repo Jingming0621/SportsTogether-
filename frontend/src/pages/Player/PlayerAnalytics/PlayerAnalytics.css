@@ -58,7 +58,6 @@
 }
 
 .stat-value.highlight {
-    color: var(--accent-color);
     font-size: 1.8rem;
     word-break: break-word;
 }

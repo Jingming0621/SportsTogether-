@@ -1,8 +1,9 @@
 import React from 'react';
+import { currentUser } from '../../data/mockData';
 import './InstructorNavbar.css';
 
 const InstructorNavbar = ({ onNavigate, currentPage, onLogout }) => {
-    const username = localStorage.getItem('username');
+    const username = currentUser.username || localStorage.getItem('username') || 'Jing Ming';
 
     return (
         <nav className="instructor-navbar">
@@ -26,7 +27,7 @@ const InstructorNavbar = ({ onNavigate, currentPage, onLogout }) => {
                     </button>
                     <div className="dropdown-menu right-aligned">
                         <div className="dropdown-header">
-                            <div className="user-name">{username || 'Jing Ming'}</div>
+                            <div className="user-name">{username}</div>
                             <div className="user-role">Instructor</div>
                         </div>
                         <hr />

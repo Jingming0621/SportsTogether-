@@ -1,17 +1,17 @@
 .instructor-navbar {
-    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
-    padding: 12px 32px;
+    background: linear-gradient(90deg, #00C9FF 0%, #10b981 100%);
+    padding: var(--spacing-md) var(--spacing-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 201, 255, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .instructor-navbar-logo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #FFFFFF;
     text-decoration: none;
