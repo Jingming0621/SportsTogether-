@@ -1,6 +1,6 @@
 .rewards-management {
     min-height: 100vh;
-    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+    background: radial-gradient(circle at 50% 0%, #3a3a3a 0%, #121212 80%);
     padding: 120px 40px 40px 40px;
 }
 
@@ -12,13 +12,13 @@
 .page-header h1 {
     font-size: 36px;
     font-weight: 700;
-    color: #6b21a8;
+    color: white;
     margin-bottom: 10px;
 }
 
 .page-header p {
     font-size: 16px;
-    color: #7c3aed;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .action-bar {
@@ -222,4 +222,3 @@
         justify-content: center;
     }
 }
-

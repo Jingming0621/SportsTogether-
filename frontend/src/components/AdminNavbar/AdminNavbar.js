@@ -7,7 +7,7 @@ const AdminNavbar = ({ onNavigate, currentPage, onLogout }) => {
     return (
         <nav className="admin-navbar">
             <button onClick={() => onNavigate('adminDashboard')} className="navbar-logo" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
-                Admin<span>Panel</span>
+                Admin<span>Dashboard</span>
             </button>
             <ul className="navbar-links">
                 <li><button onClick={() => onNavigate('verificationDashboard')} className={`nav-link ${currentPage === 'verificationDashboard' ? 'active' : ''}`}>Verification</button></li>

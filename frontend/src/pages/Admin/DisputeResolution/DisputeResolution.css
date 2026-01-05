@@ -1,6 +1,6 @@
 .dispute-resolution {
     min-height: 100vh;
-    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    background: radial-gradient(circle at 50% 0%, #3a3a3a 0%, #121212 80%);
     padding: 120px 40px 40px 40px;
 }
 
@@ -12,13 +12,13 @@
 .page-header h1 {
     font-size: 36px;
     font-weight: 700;
-    color: #92400e;
+    color: white;
     margin-bottom: 10px;
 }
 
 .page-header p {
     font-size: 16px;
-    color: #78350f;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .cases-grid {
@@ -276,4 +276,3 @@
         grid-template-columns: 1fr;
     }
 }
-

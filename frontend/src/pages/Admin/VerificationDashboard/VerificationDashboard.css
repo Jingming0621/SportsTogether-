@@ -1,6 +1,6 @@
 .verification-dashboard {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    background: radial-gradient(circle at 50% 0%, #3a3a3a 0%, #121212 80%);
     padding: 120px 40px 40px 40px;
 }
 
@@ -12,13 +12,13 @@
 .dashboard-header h1 {
     font-size: 36px;
     font-weight: 700;
-    color: #1e3a8a;
+    color: white;
     margin-bottom: 10px;
 }
 
 .dashboard-header p {
     font-size: 16px;
-    color: #64748b;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .filters {
@@ -316,4 +316,3 @@
         flex-direction: column;
     }
 }
-
